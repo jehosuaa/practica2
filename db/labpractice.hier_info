@@ -1,0 +1,41 @@
+|securitybox_controller_JJ
+Clk => tblock[0].CLK
+Clk => tblock[1].CLK
+Clk => tblock[2].CLK
+Clk => tblock[3].CLK
+Clk => currentState~1.DATAIN
+Reset => tblock.OUTPUTSELECT
+Reset => tblock.OUTPUTSELECT
+Reset => tblock.OUTPUTSELECT
+Reset => tblock.OUTPUTSELECT
+Reset => currentState~3.DATAIN
+Key[0] => Equal0.IN1
+Key[0] => Equal1.IN1
+Key[0] => Equal2.IN3
+Key[0] => Equal3.IN3
+Key[1] => Equal0.IN3
+Key[1] => Equal1.IN3
+Key[1] => Equal2.IN0
+Key[1] => Equal3.IN2
+Key[2] => Equal0.IN2
+Key[2] => Equal1.IN0
+Key[2] => Equal2.IN2
+Key[2] => Equal3.IN1
+Key[3] => Equal0.IN0
+Key[3] => Equal1.IN2
+Key[3] => Equal2.IN1
+Key[3] => Equal3.IN0
+PressedKey => nextState.OUTPUTSELECT
+PressedKey => nextState.OUTPUTSELECT
+PressedKey => always1.IN0
+PressedKey => Selector0.IN1
+DoorSw => Selector0.IN4
+DoorSw => Selector0.IN5
+DoorSw => always1.IN1
+DoorSw => Selector8.IN1
+OpenDoor << OpenDoor.DB_MAX_OUTPUT_PORT_TYPE
+OpenDoorLed << OpenDoorLed.DB_MAX_OUTPUT_PORT_TYPE
+ClosedDoorLed << OpenDoorLed.DB_MAX_OUTPUT_PORT_TYPE
+WrongPWLed << WrongPWLed.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,57 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "OpenDoor",
+					"strict" : false
+				},
+				{
+					"name" : "OpenDoorLed",
+					"strict" : false
+				},
+				{
+					"name" : "ClosedDoorLed",
+					"strict" : false
+				},
+				{
+					"name" : "WrongPWLed",
+					"strict" : false
+				},
+				{
+					"name" : "Key[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Key[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Key[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Key[3]",
+					"strict" : false
+				},
+				{
+					"name" : "PressedKey",
+					"strict" : false
+				},
+				{
+					"name" : "DoorSw",
+					"strict" : false
+				},
+				{
+					"name" : "Clk",
+					"strict" : false
+				},
+				{
+					"name" : "Reset",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
