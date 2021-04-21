@@ -216,28 +216,58 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		
 		if(A[31]==B[31]) begin //ambos numeros con signos iguales
 		
-			if (mayA == 1 and diferencia != 0)//A>B
+			if (mayA == 1 and diferencia != 0) begin//A>B
 					result <= mantA - aux; //signo del resultado es el de A
 					R[31] <= A[31];
+					nextState <= S4;
+			end
 					
 					
-			else if (mayA == 0 and diferencia != 0 )//B>A
+			else if (mayA == 0 and diferencia != 0 ) begin//B>A
 					result <= mantB - aux; 
 					R[31] <= ~B[31];      //signo del resultado es el contrario al de B
+					nextState <= S4;
+			end
 					
 			else if(diferencia == 0) begin
 					if(mayA) begin 
 						result <= mantA - mantB;
 						R[31] <= A[31]; //signo del resultado es el de A
+						nextState <= S4;
 					end
 					if(mayB) begin
 						result <= mantB - mantA;
 						R[31] <= ~B[31]; //signo del resultado es el contrario al de B
+						nextState <= S4;
 					end
 				end
 			end
 		
 		else begin //A y B signos diferentes
+		R[31] <= A[31];      //como el - le cambia el signo a B, A y B teminarian sumandose con el mismo signo
+												 // ya que seria A-(-B) o -A-(B)
+		
+		if (mayA == 1 and diferencia != 0) begin//A>B
+					result <= mantA + aux; 
+					nextState <= S4;
+			end
+					
+					
+			else if (mayA == 0 and diferencia != 0 ) begin//B>A
+					result <= mantB + aux; 
+					nextState <= S4;
+					
+			end
+					
+			else if(diferencia == 0) begin //no importa cual mantisa es mayor ya que se van a terminar sumando
+						result <= mantA + mantB;
+						nextState <= S4;
+
+				end
+		
+		
+		
+		
 		
 		end
 		
