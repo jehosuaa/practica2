@@ -422,8 +422,52 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 //			if(B[i]==1) OUT <=i;
 			
 		end
-			
-	
+endmodule
+
+module test_bench();
+
+	logic clk, reset, start, oper; 
+	logic [31:0] A, B;
+	logic [31:0] R;
+	logic ready;	
 		
-			
+	addsub754_JJ tb(clk, reset, start, oper, A, B, R, ready);
+	
+	initial begin
+	
+		clk = 1;
+		reset = 1; #2ms
+		reset = 0; #2ms
+		//4 -> 01000000100000000000000000000000, -4 -> 11000000100000000000000000000000
+		//2 -> 01000000000000000000000000000000, -2 -> 11000000000000000000000000000000
+		//5 -> 01000000101000000000000000000000, -5 -> 11000000101000000000000000000000
+		
+		//sumas
+				 
+		start = 1; oper = 0; A = 01000000100000000000000000000000; B = 01000000000000000000000000000000; #50ms; //signos iguales, distinto exponente, a=4 b=2
+		start = 1; oper = 0; A = 01000000000000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos iguales, distinto exponente, a=2 b=4
+		start = 1; oper = 0; A = 01000000101000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos iguales, mismo exponente, a=5 b=4
+		start = 1; oper = 0; A = 01000000100000000000000000000000; B = 01000000101000000000000000000000; #50ms; //signos iguales, mismo exponente, a=4 b=5
+		start = 1; oper = 0; A = 01000000100000000000000000000000; B = 11000000000000000000000000000000; #50ms; //signos distintos, distinto exponente, a=4 b=-2
+		start = 1; oper = 0; A = 11000000000000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos distintos, distinto exponente, a=-2 b=4
+		start = 1; oper = 0; A = 01000000100000000000000000000000; B = 11000000101000000000000000000000; #50ms; //signos distintos, mismo exponente, a=4 b=-5
+		start = 1; oper = 0; A = 11000000101000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos distintos, mismo exponente, a=-5 b=4
+		
+		//restas
+		
+		start = 1; oper = 1; A = 01000000100000000000000000000000; B = 01000000000000000000000000000000; #50ms; //signos iguales, distinto exponente, a=4 b=2
+		start = 1; oper = 1; A = 01000000000000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos iguales, distinto exponente, a=2 b=4
+		start = 1; oper = 1; A = 01000000101000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos iguales, mismo exponente, a=5 b=4
+		start = 1; oper = 1; A = 01000000100000000000000000000000; B = 01000000101000000000000000000000; #50ms; //signos iguales, mismo exponente, a=4 b=5
+		start = 1; oper = 1; A = 01000000100000000000000000000000; B = 11000000000000000000000000000000; #50ms; //signos distintos, distinto exponente, a=4 b=-2
+		start = 1; oper = 1; A = 11000000000000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos distintos, distinto exponente, a=-2 b=4
+		start = 1; oper = 1; A = 01000000100000000000000000000000; B = 11000000101000000000000000000000; #50ms; //signos distintos, mismo exponente, a=4 b=-5
+		start = 1; oper = 1; A = 11000000101000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos distintos, mismo exponente, a=-5 b=4
+		
+		$stop;
+	end
+	
+	always #1s Clk =  ~Clk;
+	
+endmodule	
 		
