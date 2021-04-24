@@ -38,6 +38,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 //cu&&o coloco S11 me refiero al estado final, como aun no hemos defino cuantos estados tenemos puse uno alto
 	
 	always_comb begin 
+	//always_ff  begin
 	
 	case (currentState)
 	
@@ -77,7 +78,8 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 					aux <= mantA;
 				end //5
 				
-				else if (expA == expB) diferencia <=8'b00000000; 
+				//else if (expA == expB) diferencia <=8'b00000000; 
+				else  diferencia <=8'b00000000;
 					
 			end//3
 								
@@ -134,6 +136,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			expA <= expA + diferencia;
 			aux <= aux >> diferencia;
 		end
+		else   aux <=23'b0000000000000000000000000;
 //			end
 //		else
 //			nextState <= S1;
@@ -155,7 +158,8 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			else if (mayA == 0 && diferencia != 0 ) //B>A
 				result <= mantB + aux;
 				
-			else if(diferencia == 0) // exp iguales
+			//else if(diferencia == 0) // exp iguales
+			else 
 				result <= mantB + mantA;
 		end
 		
@@ -173,7 +177,8 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 									 // ya que el exp de B es mas gr&&e				
 			end
 									 
-			else if(diferencia == 0) begin //exp iguales
+			//else if(diferencia == 0) begin //exp iguales
+			else  begin //exp iguales
 				result <= mantB + mantA;
 				if (mantA > mantB) begin
 						R[31] <= A[31]; // si se suman el resultado tendra el signo del numero may||, en este caso A
@@ -234,7 +239,8 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			
 			end
 					
-			else if(diferencia == 0) begin // exponentes iguales
+			//else if(diferencia == 0) begin // exponentes iguales
+			else  begin
 				if(A[31]==0) begin //positivos 
 				if(mantA > mantB) begin 
 						result <= mantA - mantB; //A-B .A>B. 10-5=5
@@ -342,7 +348,8 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 				nextState <= S11;
 				for(i=8'b00000000;i<8'b00011000;i=i+8'b00000001) begin
 					if(result[i]==1) 
-						OUT <=i;			//va guardar la posicion del ultimo bit donde encuentre 1			
+						OUT <=i;			//va guardar la posicion del ultimo bit donde encuentre 1	
+					else OUT <=8'b00000000;
 				end
 				
 				R[22 : 0] <= result[23:1]<< OUT; //se shiftea para poner el primer 1 en la poscion 24 y los sigientes 23 bits son la mantisa
@@ -382,8 +389,9 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		
 	end
 
-	default:
+	default: 
 				nextState <= S11;
+		
 				
 		endcase
 	end
