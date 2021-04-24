@@ -1,4 +1,3 @@
-
 module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 
 	input logic clk, reset, start, oper; 
@@ -8,31 +7,34 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	
 	reg sA;
 	reg sB;
-	reg [7:0] expA=8b'0;
-	reg [7:0] expB=8b'0;
-	reg [23:0] mantA; mantA[23] <= 1; // los primeros 23 bits son la mantisa y msb es el 1 que trae por defecto
-	reg [23:0] mantB; mantB[23] <= 1;// los primeros 23 bits son la mantisa y msb es el 1 que trae por defecto
-	reg [24:0] result=24b'0;
+	reg [7:0] expA=8'b0;
+	reg [7:0] expB=8'b0;
+	reg [23:0] mantA; // los primeros 23 bits son la mantisa y msb es el 1 que trae p|| defecto
+	reg [23:0] mantB;// los primeros 23 bits son la mantisa y msb es el 1 que trae p|| defecto
+	reg [24:0] result;
 	reg mayA=0;
-	reg OUT;
+	integer  OUT=0;
 	
-	reg aux [23:0];// para correr mantiza
-	reg diferencia [7:0]// variable para ver la diferencia entre exp
+	reg [23:0] aux ;// para c||rer mantiza
+	reg [7:0]diferencia ;// variable para ver la diferencia entre exp
+	//logic [5:0]i;
+	integer i;
 	
 	typedef enum logic [2:0] {S0,S1,S2,S3,S4,S5,S11} State;
+	
 	
 	State currentState, nextState;
 	
 	always_ff @(posedge reset, posedge clk) begin
 	
-		if(Reset)
-			currentState <= S0;
+		if(reset)
+			currentState <= S11;
 		else
 			currentState <= nextState;
 	
 	end
 	
-//cuando coloco S11 me refiero al estado final, como aun no hemos defino cuantos estados tenemos puse uno alto
+//cu&&o coloco S11 me refiero al estado final, como aun no hemos defino cuantos estados tenemos puse uno alto
 	
 	always_comb begin 
 	
@@ -40,6 +42,9 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	
 	S0: begin
 //		if (start == 1) begin
+			result <=25'b0;
+			mantA[23] <= 1;
+			mantB[23] <= 1;
 			sA <= A[31];
 			sB <= B[31];
 			expA <= A[30:23];
@@ -47,20 +52,20 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			mantA[22:0] <= A[22:0];
 			mantB[22:0] <= B[22:0];	
 			R <= 2'h00;
-			OUT <= 2'd23;
+			OUT <= 2'd00;
 			nextState <= S1;
 //		end	
 		end
 		
 		
 	S1: begin //1  //etapa para mirar casos especiales y de no ser el caso mirar diferencia entre exp
-//		if (start == 1 and ready ==0) begin //2
+//		if (start == 1 && ready ==0) begin //2
 		
-			if((expA !=5'b00000 and expB !=5'b00000) and (expA !=5'b11111 and expB !=5'b11111) and ((A != B) or ( (A==B)  and (oper==0)))  ) begin //3
+			if(((expA !=5'b00000) && (expB !=5'b00000)) && ((expA !=5'b11111) && (expB !=5'b11111)) && ((A != B) || ( (A == B)  && (oper == 0 )))  ) begin //3
 				nextState <= S2;
 				//se verifica que los exp no entren dentro de las excepciones 
 				if (expA > expB) begin //4					
-					mayA <= 1;  //expA mayor que B =1
+					mayA <= 1;  //expA may|| que B =1
 					diferencia <= expA-expB;
 					aux <= mantB;					
 					end//4
@@ -75,7 +80,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 					
 			end//3
 								
-			else if(expA== 5'b00000 or expB ==5'b00000) begin//6 // se mira si los exp de algunos de las datos ingresados estan reservados para el caso del 0
+			else if(expA== 5'b00000 || expB ==5'b00000) begin//6 // se mira si los exp de algunos de las datos ingresados estan reservados para el caso del 0
 				nextState <= S11;
 				ready <= 1;
 				if(expA== 5'b00000 ) begin//7 // en el caso de uno ser cero el resultado sera el otro numero en el caso de la suma
@@ -85,7 +90,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 				
 					else  begin //9		//0-B=-B
 						R<=B;
-						R[31] <= ~(R[31]) // se cambia el signo por el contrario
+						R[31] <= ~(R[31]); // se cambia el signo p|| el contrario
 						end//9
 					
 				end//7
@@ -96,7 +101,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			end //6	
 		
 		
-			else if(expA !=5'b11111 or expB !=5'b11111)  begin //10 // se mira si los exp de algunos de las datos ingresados estan reservados para el caso del NAn o infinito
+			else if(expA !=5'b11111 || expB !=5'b11111)  begin //10 // se mira si los exp de algunos de las datos ingresados estan reservados para el caso del NAn o infinito
 				ready <= 1;
 				nextState <= S11;
 				if(expA== 5'b11111)
@@ -118,13 +123,13 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		
 	S2: begin // igualar exp
 	
-//		if(start == 1 and ready ==0)begin
+//		if(start == 1 && ready ==0)begin
 		nextState <= S3;
-		if (mayA == 1 and diferencia != 0) begin
-			expB <= expB + diferencia;
+		if (mayA == 1 && diferencia != 8'b0) begin
+			expB <= expB + diferencia;//+ diferencia
 			aux <= aux >> diferencia;
 		end
-		else if (mayA == 0 and diferencia != 0) begin
+		else if (mayA == 0 && diferencia != 8'b0) begin
 			expA <= expA + diferencia;
 			aux <= aux >> diferencia;
 		end
@@ -136,17 +141,17 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		
 	S3: begin // suma o resta ya con los exp iguales
 	
-//	if(start == 1 and ready ==0)begin
+//	if(start == 1 && ready ==0)begin
 	nextState <= S4;
 	if(oper==0) begin //SUMA // oper=0 suma y oper=1 resta
 	
 		if(A[31]==B[31]) begin //ambos numeros con signos iguales
 			nextState <= S4;
 			R[31] <= A[31]; //signo de la salida va a ser el signo de cualquiera de los dos  numeros ya que tienen igual signo		
-			if (mayA == 1 and diferencia != 0) //A>B
+			if (mayA == 1 && diferencia != 0) //A>B
 				result <= mantA + aux;				
 				
-			else if (mayA == 0 and diferencia != 0 ) //B>A
+			else if (mayA == 0 && diferencia != 0 ) //B>A
 				result <= mantB + aux;
 				
 			else if(diferencia == 0) // exp iguales
@@ -155,27 +160,27 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		
 		else begin //A y B signos diferentes, suma
 			
-			if (mayA == 1 and diferencia != 0) begin
+			if (mayA == 1 && diferencia != 0) begin
 				result <= mantA + aux;
-				R[31] <= A[31]; // si se suman el resultado tendra el signo del numero mayor, en este caso A
-									// ya que el exp de A es mas grande				
+				R[31] <= A[31]; // si se suman el resultado tendra el signo del numero may||, en este caso A
+									// ya que el exp de A es mas gr&&e				
 			end
 				
-			else if (mayA == 0 and diferencia != 0 ) begin
+			else if (mayA == 0 && diferencia != 0 ) begin
 				result <= mantB + aux;
-				R[31] <= B[31]; // si se suman el resultado tendra el signo del numero mayor, en este caso B
-									 // ya que el exp de B es mas grande				
+				R[31] <= B[31]; // si se suman el resultado tendra el signo del numero may||, en este caso B
+									 // ya que el exp de B es mas gr&&e				
 			end
 									 
 			else if(diferencia == 0) begin //exp iguales
 				result <= mantB + mantA;
 				if (mantA > mantB) begin
-						R[31] <= A[31]; // si se suman el resultado tendra el signo del numero mayor, en este caso A
-															 // ya que la mantisa de A es mas grande
+						R[31] <= A[31]; // si se suman el resultado tendra el signo del numero may||, en este caso A
+															 // ya que la mantisa de A es mas gr&&e
 				end											 
 				else if (mantB > mantA) begin
 					
-					R[31] <= B[31]; // de caso contrario mantisa de B mas grando, por tanto result tiene el signo de B
+					R[31] <= B[31]; // de caso contrario mantisa de B mas gr&&o, p|| tanto result tiene el signo de B
 				
 				end
 				else begin
@@ -195,7 +200,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		
 		if(A[31]==B[31]) begin //ambos numeros con signos iguales
 		
-			if (mayA == 1 and diferencia != 0) begin//A>B
+			if (mayA == 1 && diferencia != 0) begin//A>B
 					result <= mantA - aux; //signo del resultado es el de A //arreglar
 					
 					if(A[31]==0) begin // los dos positivos A-B , siempre signo de A
@@ -208,7 +213,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			end
 					
 					
-			else if (mayA == 0 and diferencia != 0 ) begin//B>A
+			else if (mayA == 0 && diferencia != 0 ) begin//B>A
 			
 			if(A[31]==0) begin  // los dos son positivos
 					result <= mantB - aux; 
@@ -247,22 +252,22 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			end
 		
 		else begin //A y B signos diferentes
-		R[31] <= A[31];      //como el - le cambia el signo a B, A y B teminarian sumandose con el mismo signo
+		R[31] <= A[31];      //como el - le cambia el signo a B, A y B teminarian sum&&ose con el mismo signo
 												 // ya que seria A-(-B) o -A-(B)
 		
-		if (mayA == 1 and diferencia != 0) begin//A>B
+		if (mayA == 1 && diferencia != 0) begin//A>B
 					result <= mantA + aux; 
 					nextState <= S4;
 			end
 					
 					
-			else if (mayA == 0 and diferencia != 0 ) begin//B>A
+			else if (mayA == 0 && diferencia != 0 ) begin//B>A
 					result <= mantB + aux; 
 					nextState <= S4;
 					
 			end
 					
-			else if(diferencia == 0) begin //no importa cual mantisa es mayor ya que se van a terminar sumando
+			else if(diferencia == 0) begin //no imp||ta cual mantisa es may|| ya que se van a terminar sum&&o
 						result <= mantA + mantB;
 						nextState <= S4;
 
@@ -279,8 +284,8 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 //	
 	end
 	
-	S4: begin // normalizar la mantisa  //10.00 //11.11 //01.0 //0.1
-//	if(start == 1 and ready ==0)begin
+	S4: begin // n||malizar la mantisa  //10.00 //11.11 //01.0 //0.1
+//	if(start == 1 && ready ==0)begin
 		nextState <= S11;
 		ready <= 1;
 		if(oper==0) begin //suma  
@@ -340,41 +345,40 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 				end
 				
 				if(OUT != 0)  //para que no haya excepcion en el result
-					R[22: 22-OUT+1] <= result[(OUT-1):0];  //guardamos los numeros anteriores al primer uno y los enviamos a las primeras posiciones del resultado, ya probamos que funciona, GUT
+					R[22 : 23- OUT] <= result[(OUT-1):0];  //guardamos los numeros anteri||es al primer uno y los enviamos a las primeras posiciones del resultado, ya probamos que funciona, GUT
 				else
 					R[0] <= result[0]; //Cuando el 1 esté en la posicion 0 de result
 					
-				if (expA + (24-OUT) < 254) // Si no existe overflow
+				if ((expA + (24- OUT)) < 254) // Si no existe overflow
 					R[30:23] <= expA + (24-OUT);  
 				else 
 					R = ~R;	//Infinito
 			end						
 	end
-	else nextState <= S1;
 	
 	
-//		OUT=0;
-//		if(B[3]==1) OUT=3;
-//		if (B[2]==1) OUT=2;
-//		if (B[1]==1) OUT=1;
-//		else OUT=0;
-//		
-//		for(i=0;i<32;i=i+1)
-//			if(B[i]==1) OUT <=i;
-			
-//		end
 	end
+	
+	
+	
 	S11: begin
 	
-	if (start == 0 and ready = 1) 
+	if (start == 0 && ready == 1) 
 		nextState <= S11;
+	
 		
 	else begin 
 		nextState <= S0;  //espero que start sea 0, que haya una nueva op
 		ready <= 0;
 	end
 		
-	end	
+	end
+
+	default:
+				nextState <= S11;
+				
+		endcase
+	end
 	
 endmodule
 
@@ -390,36 +394,38 @@ module test_bench();
 	initial begin
 	
 		clk = 1;
-		reset = 1; #40ns
-		reset = 0; #40ns
+		reset = 1; #40ns;
+		reset = 0; #40ns;
 		//4 -> 01000000100000000000000000000000, -4 -> 11000000100000000000000000000000
 		//2 -> 01000000000000000000000000000000, -2 -> 11000000000000000000000000000000
 		//5 -> 01000000101000000000000000000000, -5 -> 11000000101000000000000000000000
 		
 		//sumas
 				 
-		start = 1; oper = 0; A = 01000000100000000000000000000000; B = 01000000000000000000000000000000; #50ms; //signos iguales, distinto exponente, a=4 b=2
-		start = 1; oper = 0; A = 01000000000000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos iguales, distinto exponente, a=2 b=4
-		start = 1; oper = 0; A = 01000000101000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos iguales, mismo exponente, a=5 b=4
-		start = 1; oper = 0; A = 01000000100000000000000000000000; B = 01000000101000000000000000000000; #50ms; //signos iguales, mismo exponente, a=4 b=5
-		start = 1; oper = 0; A = 01000000100000000000000000000000; B = 11000000000000000000000000000000; #50ms; //signos distintos, distinto exponente, a=4 b=-2
-		start = 1; oper = 0; A = 11000000000000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos distintos, distinto exponente, a=-2 b=4
-		start = 1; oper = 0; A = 01000000100000000000000000000000; B = 11000000101000000000000000000000; #50ms; //signos distintos, mismo exponente, a=4 b=-5
-		start = 1; oper = 0; A = 11000000101000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos distintos, mismo exponente, a=-5 b=4
-		start = 1; oper = 0; A = 11000000101000000000000000000000; B = 11000000101000000000000000000000; #50ms; //mismo valor a=-5 b=-5
+		start = 1; oper = 0; A =32'b01000000100000000000000000000000; B =32'b01000000000000000000000000000000; #60ns; //signos iguales, distinto exponente, a=4 b=2
+	//start = 1; oper = 0; A =32'b01000000000000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos iguales, distinto exponente, a=2 b=4
+	//start = 1; oper = 0; A =32'b01000000101000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos iguales, mismo exponente, a=5 b=4
+	//start = 1; oper = 0; A =32'b01000000100000000000000000000000; B =32'b01000000101000000000000000000000; #60ns; //signos iguales, mismo exponente, a=4 b=5
+	//start = 1; oper = 0; A =32'b01000000100000000000000000000000; B =32'b11000000000000000000000000000000; #60ns; //signos distintos, distinto exponente, a=4 b=-2
+	//start = 1; oper = 0; A =32'b11000000000000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos distintos, distinto exponente, a=-2 b=4
+	//start = 1; oper = 0; A =32'b01000000100000000000000000000000; B =32'b11000000101000000000000000000000; #60ns; //signos distintos, mismo exponente, a=4 b=-5
+	//start = 1; oper = 0; A =32'b11000000101000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos distintos, mismo exponente, a=-5 b=4
+	//start = 1; oper = 0; A =32'b11000000101000000000000000000000; B =32'b11000000101000000000000000000000; #60ns; //mismo val|| a=-5 b=-5
 		
 		//restas
 		
-		start = 1; oper = 1; A = 01000000100000000000000000000000; B = 01000000000000000000000000000000; #50ms; //signos iguales, distinto exponente, a=4 b=2
-		start = 1; oper = 1; A = 01000000000000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos iguales, distinto exponente, a=2 b=4
-		start = 1; oper = 1; A = 01000000101000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos iguales, mismo exponente, a=5 b=4
-		start = 1; oper = 1; A = 01000000100000000000000000000000; B = 01000000101000000000000000000000; #50ms; //signos iguales, mismo exponente, a=4 b=5
-		start = 1; oper = 1; A = 01000000100000000000000000000000; B = 11000000000000000000000000000000; #50ms; //signos distintos, distinto exponente, a=4 b=-2
-		start = 1; oper = 1; A = 11000000000000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos distintos, distinto exponente, a=-2 b=4
-		start = 1; oper = 1; A = 01000000100000000000000000000000; B = 11000000101000000000000000000000; #50ms; //signos distintos, mismo exponente, a=4 b=-5
-		start = 1; oper = 1; A = 11000000101000000000000000000000; B = 01000000100000000000000000000000; #50ms; //signos distintos, mismo exponente, a=-5 b=4
-		start = 1; oper = 1; A = 11000000101000000000000000000000; B = 11000000101000000000000000000000; #50ms; //mismo valor a=-5 b=-5
+		start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b01000000000000000000000000000000; #60ns; //signos iguales, distinto exponente, a=4 b=2
+	//start = 1; oper = 1; A =32'b01000000000000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos iguales, distinto exponente, a=2 b=4
+	//start = 1; oper = 1; A =32'b01000000101000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos iguales, mismo exponente, a=5 b=4
+	//start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b01000000101000000000000000000000; #60ns; //signos iguales, mismo exponente, a=4 b=5
+	//start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b11000000000000000000000000000000; #60ns; //signos distintos, distinto exponente, a=4 b=-2
+	//start = 1; oper = 1; A =32'b11000000000000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos distintos, distinto exponente, a=-2 b=4
+	//start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b11000000101000000000000000000000; #60ns; //signos distintos, mismo exponente, a=4 b=-5
+	//start = 1; oper = 1; A =32'b11000000101000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos distintos, mismo exponente, a=-5 b=4
+	//start = 1; oper = 1; A =32'b11000000101000000000000000000000; B =32'b11000000101000000000000000000000; #60ns; //mismo val|| a=-5 b=-5
+		
 		$stop;
+		
 	end
 	
 	always #20ns Clk = ~Clk;
