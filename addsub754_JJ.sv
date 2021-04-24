@@ -5,8 +5,8 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	output logic [31:0] R;
 	output logic ready;
 	
-	reg sA;
-	reg sB;
+	//reg sA;
+	//reg sB;
 	reg [7:0] expA=8'b0;
 	reg [7:0] expB=8'b0;
 	reg [23:0] mantA; // los primeros 23 bits son la mantisa y msb es el 1 que trae p|| defecto
@@ -27,11 +27,29 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	State currentState, nextState;
 	
 	always_ff @(posedge reset, posedge clk) begin
-	
+		
+//			expA <= expA;
+//			expB <= expB;
+//			mantA <= mantA;
+//			mantB <= mantB;	
+//			R <= R;
+//			OUT <= OUT;
+//			ready <= ready;
+//			aux <= aux;
+//			diferencia <= diferencia;
 		if(reset)
 			currentState <= S11;
 		else
 			currentState <= nextState;
+//			expA <= expA;
+//			expB <= expB;
+//			mantA <= mantA;
+//			mantB <= mantB;	
+//			R <= R;
+//			OUT <= OUT;
+//			ready <= ready;
+//			aux <= aux;
+//			diferencia <= diferencia;
 	
 	end
 	
@@ -47,8 +65,8 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			result <=25'b0;
 			mantA[23] <= 1;
 			mantB[23] <= 1;
-			sA <= A[31];
-			sB <= B[31];
+			//sA <= A[31];
+			//sB <= B[31];
 			expA <= A[30:23];
 			expB <= B[30:23];
 			mantA[22:0] <= A[22:0];
@@ -405,11 +423,11 @@ module test_bench();
 	logic [31:0] R;
 	logic ready;	
 		
-	addsub754_JJ tb(clk, reset, start, oper, A, B, R, ready);
+	addsub754_JJ tb(Clk, reset, start, oper, A, B, R, ready);
 	
 	initial begin
 	
-		clk = 1;
+		Clk = 1;
 		reset = 1; #40ns;
 		reset = 0; #40ns;
 		//4 -> 01000000100000000000000000000000, -4 -> 11000000100000000000000000000000
