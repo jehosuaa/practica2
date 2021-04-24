@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at addsub754_JJ.sv(41): always construct contains both blocking and non-blocking assignments File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 41
+Warning (10268): Verilog HDL information at addsub754_JJ.sv(42): always construct contains both blocking and non-blocking assignments File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42

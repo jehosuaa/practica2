@@ -1,5 +1,5 @@
 Analysis & Synthesis report for labpractice
-Sat Apr 24 02:22:50 2021
+Sat Apr 24 13:53:32 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sat Apr 24 02:22:50 2021           ;
+; Analysis & Synthesis Status        ; Failed - Sat Apr 24 13:53:32 2021           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; labpractice                                 ;
 ; Top-level Entity Name              ; addsub754_JJ                                ;
@@ -162,18 +162,198 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Apr 24 02:22:41 2021
+    Info: Processing started: Sat Apr 24 13:53:22 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off labpractice -c labpractice
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file addsub754_jj.sv
     Info (12023): Found entity 1: addsub754_JJ File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 1
-    Info (12023): Found entity 2: test_bench File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 385
-Error (10734): Verilog HDL error at addsub754_JJ.sv(348): OUT is not a constant File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 348
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4701 megabytes
-    Error: Processing ended: Sat Apr 24 02:22:50 2021
-    Error: Elapsed time: 00:00:09
-    Error: Total CPU time (on all processors): 00:00:22
+    Info (12023): Found entity 2: test_bench File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 393
+Warning (10236): Verilog HDL Implicit Net warning at addsub754_JJ.sv(400): created implicit net for "clk" File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 400
+Info (12127): Elaborating entity "addsub754_JJ" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at addsub754_JJ.sv(8): object "sA" assigned a value but never read File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 8
+Warning (10036): Verilog HDL or VHDL warning at addsub754_JJ.sv(9): object "sB" assigned a value but never read File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 9
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "result", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "mantA", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "mantB", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "expA", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "expB", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "R", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "OUT", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "mayA", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "diferencia", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "aux", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "ready", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(42): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Error (10166): SystemVerilog RTL Coding error at addsub754_JJ.sv(42): always_comb construct does not infer purely combinational logic. File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "ready" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[0]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[1]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[2]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[3]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[4]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[5]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[6]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[7]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[8]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[9]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[10]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[11]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[12]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[13]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[14]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[15]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[16]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[17]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[18]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[19]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[20]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[21]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[22]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "aux[23]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "diferencia[0]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "diferencia[1]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "diferencia[2]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "diferencia[3]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "diferencia[4]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "diferencia[5]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "diferencia[6]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "diferencia[7]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mayA" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "OUT[0]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "OUT[1]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "OUT[2]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "OUT[3]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "OUT[4]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "OUT[5]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "OUT[6]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "OUT[7]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[0]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[1]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[2]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[3]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[4]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[5]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[6]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[7]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[8]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[9]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[10]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[11]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[12]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[13]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[14]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[15]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[16]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[17]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[18]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[19]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[20]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[21]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[22]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[23]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[24]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[25]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[26]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[27]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[28]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[29]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[30]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "R[31]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expB[0]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expB[1]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expB[2]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expB[3]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expB[4]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expB[5]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expB[6]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expB[7]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expA[0]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expA[1]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expA[2]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expA[3]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expA[4]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expA[5]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expA[6]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "expA[7]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[0]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[1]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[2]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[3]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[4]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[5]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[6]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[7]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[8]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[9]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[10]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[11]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[12]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[13]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[14]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[15]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[16]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[17]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[18]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[19]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[20]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[21]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[22]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantB[23]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[0]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[1]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[2]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[3]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[4]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[5]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[6]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[7]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[8]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[9]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[10]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[11]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[12]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[13]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[14]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[15]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[16]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[17]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[18]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[19]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[20]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[21]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[22]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "mantA[23]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[0]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[1]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[2]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[3]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[4]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[5]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[6]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[7]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[8]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[9]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[10]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[11]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[12]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[13]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[14]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[15]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[16]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[17]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[18]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[19]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[20]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[21]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[22]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[23]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Info (10041): Inferred latch for "result[24]" at addsub754_JJ.sv(42) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 42
+Error (12153): Can't elaborate top-level user hierarchy
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 16 warnings
+    Error: Peak virtual memory: 4704 megabytes
+    Error: Processing ended: Sat Apr 24 13:53:32 2021
+    Error: Elapsed time: 00:00:10
+    Error: Total CPU time (on all processors): 00:00:24
 
 

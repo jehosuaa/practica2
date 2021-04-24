@@ -10,15 +10,16 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	reg [7:0] expA=8'b0;
 	reg [7:0] expB=8'b0;
 	reg [23:0] mantA; // los primeros 23 bits son la mantisa y msb es el 1 que trae p|| defecto
-	reg [23:0] mantB;// los primeros 23 bits son la mantisa y msb es el 1 que trae p|| defecto
+	reg [23:0] mantB;// los primeros 23 bits son la mantisa y msb es el 1 que trae p|| defecto    
 	reg [24:0] result;
 	reg mayA=0;
-	integer  OUT=0;
+	reg [7:0] OUT;
+	//integer OUT;
 	
 	reg [23:0] aux ;// para c||rer mantiza
 	reg [7:0]diferencia ;// variable para ver la diferencia entre exp
-	//logic [5:0]i;
-	integer i;
+	logic [7:0]i;
+	//integer i;
 	
 	typedef enum logic [2:0] {S0,S1,S2,S3,S4,S5,S11} State;
 	
@@ -52,7 +53,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			mantA[22:0] <= A[22:0];
 			mantB[22:0] <= B[22:0];	
 			R <= 2'h00;
-			OUT <= 2'd00;
+			OUT <= 8'b00000000;
 			nextState <= S1;
 //		end	
 		end
@@ -86,17 +87,17 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 				if(expA== 5'b00000 ) begin//7 // en el caso de uno ser cero el resultado sera el otro numero en el caso de la suma
 			
 					if(oper ==0) 
-						R<=B;  // 0+B=B
+						R <= B;  // 0+B=B
 				
 					else  begin //9		//0-B=-B
-						R<=B;
+						R[30:0] <= B[30:0];
 						R[31] <= ~(R[31]); // se cambia el signo p|| el contrario
 						end//9
 					
 				end//7
 				
 				else //caso donde expB=0
-					R<=A; // A+0=0 y A-0=0
+					R <= A; // A+0=0 y A-0=0
 				
 			end //6	
 		
@@ -105,15 +106,15 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 				ready <= 1;
 				nextState <= S11;
 				if(expA== 5'b11111)
-					R<=A; // en caso que alguno sea Nan o infinito el resultado sera ese numero
+					R <= A; // en caso que alguno sea Nan o infinito el resultado sera ese numero
 					
 				else
-					R<=B;
+					R <= B;
 			
 			end//10	
 						
 			else begin // A=B
-				R<= 2'h00; // en caso que A=B  y sea resta A-B=0
+				R <= 2'h00; // en caso que A=B  y sea resta A-B=0
 				ready <= 1;
 				nextState <= S11; 
 			end
@@ -180,7 +181,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 				end											 
 				else if (mantB > mantA) begin
 					
-					R[31] <= B[31]; // de caso contrario mantisa de B mas gr&&o, p|| tanto result tiene el signo de B
+					R[31] <= B[31]; // de caso contrario mantisa de B mas grande, por tanto result tiene el signo de B
 				
 				end
 				else begin
@@ -339,26 +340,33 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			else begin //00.xxxx caso triste
 				ready <= 1;
 				nextState <= S11;
-				for(i=0;i<24;i=i+1) begin
+				for(i=8'b00000000;i<8'b00011000;i=i+8'b00000001) begin
 					if(result[i]==1) 
 						OUT <=i;			//va guardar la posicion del ultimo bit donde encuentre 1			
 				end
 				
-				if(OUT != 0)  //para que no haya excepcion en el result
-					R[22 : 23- OUT] <= result[(OUT-1):0];  //guardamos los numeros anteri||es al primer uno y los enviamos a las primeras posiciones del resultado, ya probamos que funciona, GUT
-				else
-					R[0] <= result[0]; //Cuando el 1 esté en la posicion 0 de result
-					
-				if ((expA + (24- OUT)) < 254) // Si no existe overflow
-					R[30:23] <= expA + (24-OUT);  
+				R[22 : 0] <= result[23:1]<< OUT; //se shiftea para poner el primer 1 en la poscion 24 y los sigientes 23 bits son la mantisa
+				
+				if ((expA + (8'b00011000- OUT)) < 8'b11111110) // Si no existe overflow
+					R[30:23] <= expA + (8'b00011000-OUT);  
 				else 
-					R = ~R;	//Infinito
+					R <= ~R;	//Infinito
+				
+				
+//				if(OUT != 0)  //para que no haya excepcion en el result
+//					R[22 : 23- OUT] <= result[(OUT-1):0];  //guardamos los numeros anteri||es al primer uno y los enviamos a las primeras posiciones del resultado, ya probamos que funciona, GUT
+//				else
+//					R[0] <= result[0]; //Cuando el 1 esté en la posicion 0 de result
+//					
+//				if ((expA + (24- OUT)) < 254) // Si no existe overflow
+//					R[30:23] <= expA + (24-OUT);  
+//				else 
+//					R = ~R;	//Infinito
 			end						
 	end
 	
 	
 	end
-	
 	
 	
 	S11: begin
@@ -384,7 +392,7 @@ endmodule
 
 module test_bench();
 
-	logic clk, reset, start, oper; 
+	logic Clk, reset, start, oper; 
 	logic [31:0] A, B;
 	logic [31:0] R;
 	logic ready;	
