@@ -1,5 +1,5 @@
 Analysis & Synthesis report for labpractice
-Sat Apr 24 14:38:40 2021
+Sat Apr 24 17:53:59 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -10,7 +10,18 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |addsub754_JJ|currentState
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+ 16. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -37,20 +48,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sat Apr 24 14:38:40 2021           ;
+; Analysis & Synthesis Status        ; Successful - Sat Apr 24 17:53:59 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; labpractice                                 ;
 ; Top-level Entity Name              ; addsub754_JJ                                ;
 ; Family                             ; Cyclone 10 LP                               ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 1,113                                       ;
+;     Total combinational functions  ; 1,110                                       ;
+;     Dedicated logic registers      ; 6                                           ;
+; Total registers                    ; 6                                           ;
+; Total pins                         ; 101                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -148,12 +159,276 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Average used               ; 1.03        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   1.0%      ;
+;     Processor 3            ;   1.0%      ;
+;     Processor 4            ;   1.0%      ;
 +----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                          ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                      ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+; addsub754_JJ.sv                  ; yes             ; User SystemVerilog HDL File  ; D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                    ;
++---------------------------------------------+------------------+
+; Resource                                    ; Usage            ;
++---------------------------------------------+------------------+
+; Estimated Total logic elements              ; 1,113            ;
+;                                             ;                  ;
+; Total combinational functions               ; 1110             ;
+; Logic element usage by number of LUT inputs ;                  ;
+;     -- 4 input functions                    ; 472              ;
+;     -- 3 input functions                    ; 522              ;
+;     -- <=2 input functions                  ; 116              ;
+;                                             ;                  ;
+; Logic elements by mode                      ;                  ;
+;     -- normal mode                          ; 928              ;
+;     -- arithmetic mode                      ; 182              ;
+;                                             ;                  ;
+; Total registers                             ; 6                ;
+;     -- Dedicated logic registers            ; 6                ;
+;     -- I/O registers                        ; 0                ;
+;                                             ;                  ;
+; I/O pins                                    ; 101              ;
+;                                             ;                  ;
+; Embedded Multiplier 9-bit elements          ; 0                ;
+;                                             ;                  ;
+; Maximum fan-out node                        ; currentState.S11 ;
+; Maximum fan-out                             ; 94               ;
+; Total fan-out                               ; 3825             ;
+; Average fan-out                             ; 2.90             ;
++---------------------------------------------+------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
+; |addsub754_JJ              ; 1110 (1110)         ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 101  ; 0            ; |addsub754_JJ       ; addsub754_JJ ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |addsub754_JJ|currentState                                                                                    ;
++------------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------------+
+; Name             ; currentState.S0 ; currentState.S4 ; currentState.S3 ; currentState.S2 ; currentState.S1 ; currentState.S11 ;
++------------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------------+
+; currentState.S11 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ;
+; currentState.S1  ; 0               ; 0               ; 0               ; 0               ; 1               ; 1                ;
+; currentState.S2  ; 0               ; 0               ; 0               ; 1               ; 0               ; 1                ;
+; currentState.S3  ; 0               ; 0               ; 1               ; 0               ; 0               ; 1                ;
+; currentState.S4  ; 0               ; 1               ; 0               ; 0               ; 0               ; 1                ;
+; currentState.S0  ; 1               ; 0               ; 0               ; 0               ; 0               ; 1                ;
++------------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                 ;
++------------------------------------------------------+---------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal ; Free of Timing Hazards ;
++------------------------------------------------------+---------------------+------------------------+
+; R[0]$latch                                           ; Selector103         ; yes                    ;
+; R[1]$latch                                           ; Selector103         ; yes                    ;
+; R[2]$latch                                           ; Selector103         ; yes                    ;
+; R[3]$latch                                           ; Selector103         ; yes                    ;
+; R[4]$latch                                           ; Selector103         ; yes                    ;
+; R[5]$latch                                           ; Selector103         ; yes                    ;
+; R[6]$latch                                           ; Selector103         ; yes                    ;
+; R[7]$latch                                           ; Selector103         ; yes                    ;
+; R[8]$latch                                           ; Selector103         ; yes                    ;
+; R[9]$latch                                           ; Selector103         ; yes                    ;
+; R[10]$latch                                          ; Selector103         ; yes                    ;
+; R[11]$latch                                          ; Selector103         ; yes                    ;
+; R[12]$latch                                          ; Selector103         ; yes                    ;
+; R[13]$latch                                          ; Selector103         ; yes                    ;
+; R[14]$latch                                          ; Selector103         ; yes                    ;
+; R[15]$latch                                          ; Selector103         ; yes                    ;
+; R[16]$latch                                          ; Selector103         ; yes                    ;
+; R[17]$latch                                          ; Selector103         ; yes                    ;
+; R[18]$latch                                          ; Selector103         ; yes                    ;
+; R[19]$latch                                          ; Selector103         ; yes                    ;
+; R[20]$latch                                          ; Selector103         ; yes                    ;
+; R[21]$latch                                          ; Selector103         ; yes                    ;
+; R[22]$latch                                          ; Selector103         ; yes                    ;
+; R[23]$latch                                          ; Selector103         ; yes                    ;
+; R[24]$latch                                          ; Selector103         ; yes                    ;
+; R[25]$latch                                          ; Selector103         ; yes                    ;
+; R[26]$latch                                          ; Selector103         ; yes                    ;
+; R[27]$latch                                          ; Selector103         ; yes                    ;
+; R[28]$latch                                          ; Selector103         ; yes                    ;
+; R[29]$latch                                          ; Selector103         ; yes                    ;
+; R[30]$latch                                          ; Selector103         ; yes                    ;
+; R[31]$latch                                          ; Selector104         ; yes                    ;
+; ready$latch                                          ; Selector59          ; yes                    ;
+; expB[0]                                              ; Selector94          ; yes                    ;
+; expB[1]                                              ; Selector94          ; yes                    ;
+; expB[2]                                              ; Selector94          ; yes                    ;
+; expB[3]                                              ; Selector94          ; yes                    ;
+; expB[4]                                              ; Selector94          ; yes                    ;
+; expB[5]                                              ; Selector94          ; yes                    ;
+; expB[6]                                              ; Selector94          ; yes                    ;
+; expB[7]                                              ; Selector94          ; yes                    ;
+; expA[0]                                              ; Selector112         ; yes                    ;
+; expA[1]                                              ; Selector112         ; yes                    ;
+; expA[2]                                              ; Selector112         ; yes                    ;
+; expA[3]                                              ; Selector112         ; yes                    ;
+; expA[4]                                              ; Selector112         ; yes                    ;
+; expA[5]                                              ; Selector112         ; yes                    ;
+; expA[6]                                              ; Selector112         ; yes                    ;
+; expA[7]                                              ; Selector112         ; yes                    ;
+; OUT[3]                                               ; Selector102         ; yes                    ;
+; result[1]                                            ; Selector169         ; yes                    ;
+; OUT[2]                                               ; Selector102         ; yes                    ;
+; OUT[0]                                               ; Selector102         ; yes                    ;
+; OUT[1]                                               ; Selector102         ; yes                    ;
+; diferencia[0]                                        ; Selector1           ; yes                    ;
+; diferencia[2]                                        ; Selector1           ; yes                    ;
+; diferencia[3]                                        ; Selector1           ; yes                    ;
+; diferencia[4]                                        ; Selector1           ; yes                    ;
+; diferencia[5]                                        ; Selector1           ; yes                    ;
+; diferencia[6]                                        ; Selector1           ; yes                    ;
+; diferencia[7]                                        ; Selector1           ; yes                    ;
+; diferencia[1]                                        ; Selector1           ; yes                    ;
+; OUT[4]                                               ; Selector102         ; yes                    ;
+; result[24]                                           ; Selector169         ; yes                    ;
+; result[0]                                            ; Selector169         ; yes                    ;
+; mayA                                                 ; mayA                ; yes                    ;
+; mantA[23]                                            ; R                   ; yes                    ;
+; mantB[23]                                            ; R                   ; yes                    ;
+; mantA[22]                                            ; R                   ; yes                    ;
+; mantB[22]                                            ; R                   ; yes                    ;
+; mantA[21]                                            ; R                   ; yes                    ;
+; mantB[21]                                            ; R                   ; yes                    ;
+; mantA[20]                                            ; R                   ; yes                    ;
+; mantB[20]                                            ; R                   ; yes                    ;
+; mantA[19]                                            ; R                   ; yes                    ;
+; mantB[19]                                            ; R                   ; yes                    ;
+; mantA[18]                                            ; R                   ; yes                    ;
+; mantB[18]                                            ; R                   ; yes                    ;
+; mantA[17]                                            ; R                   ; yes                    ;
+; mantB[17]                                            ; R                   ; yes                    ;
+; mantA[16]                                            ; R                   ; yes                    ;
+; mantB[16]                                            ; R                   ; yes                    ;
+; mantA[15]                                            ; R                   ; yes                    ;
+; mantB[15]                                            ; R                   ; yes                    ;
+; mantA[14]                                            ; R                   ; yes                    ;
+; mantB[14]                                            ; R                   ; yes                    ;
+; mantA[13]                                            ; R                   ; yes                    ;
+; mantB[13]                                            ; R                   ; yes                    ;
+; mantA[12]                                            ; R                   ; yes                    ;
+; mantB[12]                                            ; R                   ; yes                    ;
+; mantA[11]                                            ; R                   ; yes                    ;
+; mantB[11]                                            ; R                   ; yes                    ;
+; mantA[10]                                            ; R                   ; yes                    ;
+; mantB[10]                                            ; R                   ; yes                    ;
+; mantA[9]                                             ; R                   ; yes                    ;
+; mantB[9]                                             ; R                   ; yes                    ;
+; mantA[8]                                             ; R                   ; yes                    ;
+; mantB[8]                                             ; R                   ; yes                    ;
+; mantA[7]                                             ; R                   ; yes                    ;
+; mantB[7]                                             ; R                   ; yes                    ;
+; Number of user-specified and inferred latches = 160  ;                     ;                        ;
++------------------------------------------------------+---------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; currentState~4                        ; Lost fanout        ;
+; currentState~5                        ; Lost fanout        ;
+; currentState~6                        ; Lost fanout        ;
+; Total Number of Removed Registers = 3 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 6     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 6     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|diferencia   ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |addsub754_JJ|Add4         ;
+; 4:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|result[0]    ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Add4         ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Selector113  ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; No         ; |addsub754_JJ|Selector78   ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; No         ; |addsub754_JJ|Selector82   ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 20 LEs               ; 4 LEs                  ; No         ; |addsub754_JJ|Selector87   ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |addsub754_JJ|Selector91   ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |addsub754_JJ|Selector93   ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 40 LEs               ; 16 LEs                 ; No         ; |addsub754_JJ|Selector28   ;
+; 12:1               ; 7 bits    ; 56 LEs        ; 35 LEs               ; 21 LEs                 ; No         ; |addsub754_JJ|Selector57   ;
+; 13:1               ; 7 bits    ; 56 LEs        ; 42 LEs               ; 14 LEs                 ; No         ; |addsub754_JJ|Selector46   ;
+; 14:1               ; 3 bits    ; 27 LEs        ; 21 LEs               ; 6 LEs                  ; No         ; |addsub754_JJ|Selector42   ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 14 LEs               ; 6 LEs                  ; No         ; |addsub754_JJ|Selector39   ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 14 LEs               ; 6 LEs                  ; No         ; |addsub754_JJ|Selector37   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 101                         ;
+; cycloneiii_ff         ; 6                           ;
+;     CLR               ; 6                           ;
+; cycloneiii_lcell_comb ; 1110                        ;
+;     arith             ; 182                         ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 16                          ;
+;         3 data inputs ; 164                         ;
+;     normal            ; 928                         ;
+;         0 data inputs ; 4                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 91                          ;
+;         3 data inputs ; 358                         ;
+;         4 data inputs ; 472                         ;
+;                       ;                             ;
+; Max LUT depth         ; 10.40                       ;
+; Average LUT depth     ; 6.23                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -162,195 +437,514 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Apr 24 14:38:29 2021
+    Info: Processing started: Sat Apr 24 17:53:46 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off labpractice -c labpractice
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file addsub754_jj.sv
     Info (12023): Found entity 1: addsub754_JJ File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 1
-    Info (12023): Found entity 2: test_bench File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 419
+    Info (12023): Found entity 2: test_bench File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 453
 Info (12127): Elaborating entity "addsub754_JJ" for the top level hierarchy
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "result", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "mantA", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "mantB", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "expA", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "expB", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "R", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "OUT", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "mayA", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "diferencia", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "aux", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "ready", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Warning (10240): Verilog HDL Always Construct warning at addsub754_JJ.sv(61): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Error (10166): SystemVerilog RTL Coding error at addsub754_JJ.sv(61): always_comb construct does not infer purely combinational logic. File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "ready" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[0]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[1]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[2]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[3]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[4]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[5]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[6]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[7]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[8]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[9]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[10]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[11]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[12]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[13]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[14]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[15]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[16]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[17]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[18]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[19]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[20]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[21]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[22]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "aux[23]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "diferencia[0]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "diferencia[1]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "diferencia[2]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "diferencia[3]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "diferencia[4]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "diferencia[5]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "diferencia[6]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "diferencia[7]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mayA" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "OUT[0]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "OUT[1]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "OUT[2]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "OUT[3]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "OUT[4]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "OUT[5]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "OUT[6]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "OUT[7]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[0]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[1]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[2]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[3]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[4]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[5]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[6]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[7]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[8]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[9]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[10]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[11]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[12]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[13]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[14]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[15]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[16]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[17]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[18]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[19]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[20]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[21]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[22]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[23]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[24]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[25]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[26]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[27]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[28]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[29]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[30]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "R[31]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expB[0]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expB[1]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expB[2]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expB[3]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expB[4]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expB[5]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expB[6]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expB[7]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expA[0]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expA[1]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expA[2]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expA[3]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expA[4]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expA[5]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expA[6]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "expA[7]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[0]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[1]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[2]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[3]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[4]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[5]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[6]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[7]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[8]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[9]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[10]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[11]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[12]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[13]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[14]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[15]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[16]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[17]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[18]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[19]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[20]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[21]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[22]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantB[23]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[0]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[1]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[2]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[3]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[4]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[5]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[6]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[7]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[8]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[9]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[10]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[11]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[12]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[13]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[14]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[15]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[16]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[17]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[18]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[19]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[20]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[21]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[22]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "mantA[23]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[0]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[1]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[2]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[3]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[4]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[5]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[6]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[7]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[8]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[9]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[10]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[11]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[12]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[13]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[14]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[15]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[16]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[17]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[18]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[19]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[20]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[21]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[22]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[23]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Info (10041): Inferred latch for "result[24]" at addsub754_JJ.sv(61) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 61
-Error (12153): Can't elaborate top-level user hierarchy
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 13 warnings
-    Error: Peak virtual memory: 4705 megabytes
-    Error: Processing ended: Sat Apr 24 14:38:40 2021
-    Error: Elapsed time: 00:00:11
-    Error: Total CPU time (on all processors): 00:00:22
+Info (10041): Inferred latch for "ready" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[0]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[1]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[2]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[3]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[4]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[5]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[6]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[7]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[8]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[9]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[10]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[11]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[12]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[13]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[14]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[15]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[16]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[17]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[18]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[19]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[20]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[21]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[22]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "aux[23]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "diferencia[0]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "diferencia[1]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "diferencia[2]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "diferencia[3]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "diferencia[4]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "diferencia[5]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "diferencia[6]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "diferencia[7]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mayA" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "OUT[0]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "OUT[1]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "OUT[2]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "OUT[3]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "OUT[4]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "OUT[5]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "OUT[6]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "OUT[7]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[0]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[1]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[2]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[3]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[4]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[5]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[6]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[7]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[8]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[9]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[10]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[11]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[12]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[13]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[14]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[15]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[16]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[17]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[18]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[19]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[20]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[21]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[22]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[23]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[24]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[25]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[26]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[27]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[28]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[29]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[30]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "R[31]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expB[0]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expB[1]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expB[2]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expB[3]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expB[4]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expB[5]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expB[6]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expB[7]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expA[0]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expA[1]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expA[2]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expA[3]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expA[4]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expA[5]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expA[6]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "expA[7]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[0]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[1]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[2]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[3]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[4]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[5]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[6]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[7]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[8]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[9]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[10]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[11]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[12]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[13]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[14]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[15]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[16]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[17]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[18]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[19]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[20]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[21]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[22]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantB[23]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[0]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[1]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[2]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[3]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[4]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[5]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[6]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[7]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[8]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[9]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[10]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[11]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[12]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[13]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[14]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[15]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[16]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[17]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[18]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[19]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[20]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[21]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[22]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "mantA[23]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[0]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[1]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[2]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[3]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[4]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[5]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[6]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[7]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[8]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[9]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[10]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[11]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[12]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[13]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[14]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[15]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[16]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[17]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[18]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[19]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[20]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[21]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[22]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[23]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (10041): Inferred latch for "result[24]" at addsub754_JJ.sv(74) File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "mantB[23]" merged with LATCH primitive "mantA[23]" File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Warning (13012): Latch R[0]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[1]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[2]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[3]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[4]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[5]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[6]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[7]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[8]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[9]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[10]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[11]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[12]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[13]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[14]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[15]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[16]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[17]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[18]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[19]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[20]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[21]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[22]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[23]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[24]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[25]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[26]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[27]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[28]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[29]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[30]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S1 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch R[31]$latch has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S4 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expB[0] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expB[1] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expB[2] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expB[3] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expB[4] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expB[5] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expB[6] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expB[7] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expA[0] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expA[1] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expA[2] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expA[3] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expA[4] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expA[5] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expA[6] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch expA[7] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S2 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch OUT[3] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal result[20] File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+Warning (13012): Latch result[1] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch OUT[2] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S4 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch OUT[0] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S4 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch OUT[1] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S4 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch diferencia[0] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch diferencia[2] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch diferencia[3] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch diferencia[4] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch diferencia[5] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch diferencia[6] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch diferencia[7] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch diferencia[1] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch OUT[4] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S4 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[24] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[0] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mayA has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch mantA[23] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[22] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[22] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[21] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[21] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[20] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[20] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[19] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[19] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[18] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[18] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[17] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[17] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[16] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[16] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[15] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[15] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[14] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[14] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[13] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[13] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[12] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[12] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[11] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[11] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[10] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[10] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[9] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[9] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[8] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[8] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[7] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[7] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[6] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[6] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[5] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[5] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[4] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[4] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[3] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[3] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[2] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[2] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[1] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[1] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantA[0] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch mantB[0] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S11 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[2] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[3] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[4] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[5] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[6] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[7] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[8] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[9] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[10] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[11] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[12] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[13] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[14] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[15] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[16] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[17] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[18] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[19] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[20] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[21] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[22] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch result[23] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.S3 File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 28
+Warning (13012): Latch aux[1] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[0] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[23] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[22] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[21] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[20] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[19] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[18] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[17] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[16] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[15] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[14] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[13] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[12] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[11] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[10] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[9] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[8] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[7] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[6] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[5] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[4] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[3] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Warning (13012): Latch aux[2] has unsafe behavior File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 74
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LessThan0~synth File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 100
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/Udea/Semestre6/Digitales 2/practica2/practica2/output_files/labpractice.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1214 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 68 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 1113 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 317 warnings
+    Info: Peak virtual memory: 4771 megabytes
+    Info: Processing ended: Sat Apr 24 17:53:59 2021
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:25
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Udea/Semestre6/Digitales 2/practica2/practica2/output_files/labpractice.map.smsg.
 
 
