@@ -12,137 +12,27 @@
 # 
 # vlog -sv -work work +incdir+D:/Udea/Semestre6/Digitales\ 2/practica2/practica2 {D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:01:13 on Apr 24,2021
-# vlog -reportprogress 300 -sv -work work "+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2" D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv 
-# -- Compiling module addsub754_JJ
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(87): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(150): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(170): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(225): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(416): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# -- Compiling module test_bench
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(464): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(465): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
-# Top level modules:
-# 	test_bench
-# End time: 18:01:13 on Apr 24,2021, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 7
-# 
-vsim work.test_bench
-# vsim work.test_bench 
-# Start time: 18:01:16 on Apr 24,2021
-# Loading sv_std.std
-# Loading work.test_bench
-# Loading work.addsub754_JJ
-add wave -position end  sim:/test_bench/tb/A
-add wave -position end  sim:/test_bench/tb/aux
-add wave -position end  sim:/test_bench/tb/B
-add wave -position end  sim:/test_bench/tb/clk
-add wave -position end  sim:/test_bench/tb/currentState
-add wave -position end  sim:/test_bench/tb/diferencia
-add wave -position end  sim:/test_bench/tb/expA
-add wave -position end  sim:/test_bench/tb/expB
-add wave -position end  sim:/test_bench/tb/i
-add wave -position end  sim:/test_bench/tb/mantA
-add wave -position end  sim:/test_bench/tb/mantB
-add wave -position end  sim:/test_bench/tb/mayA
-add wave -position end  sim:/test_bench/tb/nextState
-add wave -position end  sim:/test_bench/tb/oper
-add wave -position end  sim:/test_bench/tb/OUT
-add wave -position end  sim:/test_bench/tb/R
-add wave -position end  sim:/test_bench/tb/ready
-add wave -position end  sim:/test_bench/tb/reset
-add wave -position end  sim:/test_bench/tb/result
-add wave -position end  sim:/test_bench/tb/start
-run -all
-# ** Note: $stop    : D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(499)
-#    Time: 392 ns  Iteration: 0  Instance: /test_bench
-# Break in Module test_bench at D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv line 499
-vlog -sv -work work {+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2} {D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv}
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:09:32 on Apr 24,2021
+# Start time: 19:48:40 on Apr 24,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2" D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv 
 # -- Compiling module addsub754_JJ
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(88): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(151): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(171): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(226): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(418): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(382): (vlog-2182) 'j' might be read before written in always_comb or always @* block.
-# -- Compiling module test_bench
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(466): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(467): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
-# Top level modules:
-# 	test_bench
-# End time: 18:09:32 on Apr 24,2021, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 8
-vsim work.test_bench
-# End time: 18:09:46 on Apr 24,2021, Elapsed time: 0:08:30
-# Errors: 0, Warnings: 0
-# vsim work.test_bench 
-# Start time: 18:09:46 on Apr 24,2021
-# Loading sv_std.std
-# Loading work.test_bench
-# Loading work.addsub754_JJ
-add wave -position end  sim:/test_bench/tb/A
-add wave -position end  sim:/test_bench/tb/aux
-add wave -position end  sim:/test_bench/tb/B
-add wave -position end  sim:/test_bench/tb/clk
-add wave -position end  sim:/test_bench/tb/currentState
-add wave -position end  sim:/test_bench/tb/diferencia
-add wave -position end  sim:/test_bench/tb/expA
-add wave -position end  sim:/test_bench/tb/expB
-add wave -position end  sim:/test_bench/tb/i
-add wave -position end  sim:/test_bench/tb/j
-add wave -position end  sim:/test_bench/tb/mantA
-add wave -position end  sim:/test_bench/tb/mantB
-add wave -position end  sim:/test_bench/tb/mayA
-add wave -position end  sim:/test_bench/tb/nextState
-add wave -position end  sim:/test_bench/tb/oper
-add wave -position end  sim:/test_bench/tb/OUT
-add wave -position end  sim:/test_bench/tb/R
-add wave -position end  sim:/test_bench/tb/ready
-add wave -position end  sim:/test_bench/tb/reset
-add wave -position end  sim:/test_bench/tb/result
-add wave -position end  sim:/test_bench/tb/start
-run -all
-# ** Note: $stop    : D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(501)
-#    Time: 392 ns  Iteration: 0  Instance: /test_bench
-# Break in Module test_bench at D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv line 501
-vsim work.test_bench
-# End time: 18:28:51 on Apr 24,2021, Elapsed time: 0:19:05
-# Errors: 0, Warnings: 0
-# vsim work.test_bench 
-# Start time: 18:28:51 on Apr 24,2021
-# Loading sv_std.std
-# Loading work.test_bench
-# Loading work.addsub754_JJ
-vlog -sv -work work {+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2} {D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv}
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:29:01 on Apr 24,2021
-# vlog -reportprogress 300 -sv -work work "+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2" D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv 
-# -- Compiling module addsub754_JJ
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(88): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(151): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(171): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(226): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(420): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(411): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(384): (vlog-2182) 'j' might be read before written in always_comb or always @* block.
 # -- Compiling module test_bench
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(468): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(469): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(459): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(460): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # 
 # Top level modules:
 # 	test_bench
-# End time: 18:29:01 on Apr 24,2021, Elapsed time: 0:00:00
+# End time: 19:48:40 on Apr 24,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 8
+# 
 vsim work.test_bench
-# End time: 18:29:06 on Apr 24,2021, Elapsed time: 0:00:15
-# Errors: 0, Warnings: 0
 # vsim work.test_bench 
-# Start time: 18:29:06 on Apr 24,2021
+# Start time: 19:48:55 on Apr 24,2021
 # Loading sv_std.std
 # Loading work.test_bench
 # Loading work.addsub754_JJ
@@ -168,33 +58,33 @@ add wave -position end  sim:/test_bench/tb/reset
 add wave -position end  sim:/test_bench/tb/result
 add wave -position end  sim:/test_bench/tb/start
 run -all
-# ** Note: $stop    : D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(503)
+# ** Note: $stop    : D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(494)
 #    Time: 392 ns  Iteration: 0  Instance: /test_bench
-# Break in Module test_bench at D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv line 503
+# Break in Module test_bench at D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv line 494
 vlog -sv -work work {+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2} {D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:38:19 on Apr 24,2021
+# Start time: 19:58:52 on Apr 24,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2" D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv 
 # -- Compiling module addsub754_JJ
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(88): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(151): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(171): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(226): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(420): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(411): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(384): (vlog-2182) 'j' might be read before written in always_comb or always @* block.
 # -- Compiling module test_bench
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(468): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(469): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(459): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(460): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # 
 # Top level modules:
 # 	test_bench
-# End time: 18:38:19 on Apr 24,2021, Elapsed time: 0:00:00
+# End time: 19:58:52 on Apr 24,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 8
 vsim work.test_bench
-# End time: 18:38:25 on Apr 24,2021, Elapsed time: 0:09:19
+# End time: 19:59:04 on Apr 24,2021, Elapsed time: 0:10:09
 # Errors: 0, Warnings: 0
 # vsim work.test_bench 
-# Start time: 18:38:25 on Apr 24,2021
+# Start time: 19:59:04 on Apr 24,2021
 # Loading sv_std.std
 # Loading work.test_bench
 # Loading work.addsub754_JJ
@@ -220,60 +110,8 @@ add wave -position end  sim:/test_bench/tb/reset
 add wave -position end  sim:/test_bench/tb/result
 add wave -position end  sim:/test_bench/tb/start
 run -all
-# ** Note: $stop    : D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(503)
+# ** Note: $stop    : D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(494)
 #    Time: 392 ns  Iteration: 0  Instance: /test_bench
-# Break in Module test_bench at D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv line 503
-vlog -sv -work work {+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2} {D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv}
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:43:09 on Apr 24,2021
-# vlog -reportprogress 300 -sv -work work "+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2" D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv 
-# -- Compiling module addsub754_JJ
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(88): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(151): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(171): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(226): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(420): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(384): (vlog-2182) 'j' might be read before written in always_comb or always @* block.
-# -- Compiling module test_bench
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(468): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(469): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
-# Top level modules:
-# 	test_bench
-# End time: 18:43:09 on Apr 24,2021, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 8
-vsim work.test_bench
-# End time: 18:43:17 on Apr 24,2021, Elapsed time: 0:04:52
-# Errors: 0, Warnings: 0
-# vsim work.test_bench 
-# Start time: 18:43:17 on Apr 24,2021
-# Loading sv_std.std
-# Loading work.test_bench
-# Loading work.addsub754_JJ
-add wave -position end  sim:/test_bench/tb/A
-add wave -position end  sim:/test_bench/tb/aux
-add wave -position end  sim:/test_bench/tb/B
-add wave -position end  sim:/test_bench/tb/clk
-add wave -position end  sim:/test_bench/tb/currentState
-add wave -position end  sim:/test_bench/tb/diferencia
-add wave -position end  sim:/test_bench/tb/expA
-add wave -position end  sim:/test_bench/tb/expB
-add wave -position end  sim:/test_bench/tb/i
-add wave -position end  sim:/test_bench/tb/j
-add wave -position end  sim:/test_bench/tb/mantA
-add wave -position end  sim:/test_bench/tb/mantB
-add wave -position end  sim:/test_bench/tb/mayA
-add wave -position end  sim:/test_bench/tb/nextState
-add wave -position end  sim:/test_bench/tb/oper
-add wave -position end  sim:/test_bench/tb/OUT
-add wave -position end  sim:/test_bench/tb/R
-add wave -position end  sim:/test_bench/tb/ready
-add wave -position end  sim:/test_bench/tb/reset
-add wave -position end  sim:/test_bench/tb/result
-add wave -position end  sim:/test_bench/tb/start
-run -all
-# ** Note: $stop    : D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(503)
-#    Time: 392 ns  Iteration: 0  Instance: /test_bench
-# Break in Module test_bench at D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv line 503
-# End time: 19:08:06 on Apr 24,2021, Elapsed time: 0:24:49
+# Break in Module test_bench at D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv line 494
+# End time: 20:11:43 on Apr 24,2021, Elapsed time: 0:12:39
 # Errors: 0, Warnings: 0

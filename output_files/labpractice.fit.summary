@@ -1,12 +1,12 @@
-Fitter Status : Successful - Sat Apr 24 17:54:35 2021
+Fitter Status : Successful - Sat Apr 24 19:47:47 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : labpractice
 Top-level Entity Name : addsub754_JJ
 Family : Cyclone 10 LP
 Device : 10CL006YU256A7G
 Timing Models : Final
-Total logic elements : 1,110 / 6,272 ( 18 % )
-    Total combinational functions : 1,110 / 6,272 ( 18 % )
+Total logic elements : 1,143 / 6,272 ( 18 % )
+    Total combinational functions : 1,141 / 6,272 ( 18 % )
     Dedicated logic registers : 6 / 6,272 ( < 1 % )
 Total registers : 6
 Total pins : 101 / 177 ( 57 % )

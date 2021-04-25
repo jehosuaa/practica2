@@ -357,27 +357,27 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		else  begin//resta
 			//   01.xxx - 00.1xxx =01.xxx 	
 			
-				if(diferencia != 0) begin   //24 23 22
-														// 0   1
-														
+//				if(diferencia != 0) begin   //24 23 22
+//														// 0   1
+//														
+//				
+//					R[22:1] <= result[21:0];//01.xxxxx
+//					nextState <= S11;
+//					ready <= 1;
+//					
+//					if(mayA) begin
+//					
+//						R[30:23] <= expA ;
+//						
+//					end
+//					
+//					else begin
+//					
+//						R[30:23] <= expB;
+//					end
+//				end
 				
-					R[22:1] <= result[21:0];//01.xxxxx
-					nextState <= S11;
-					ready <= 1;
-					
-					if(mayA) begin
-					
-						R[30:23] <= expA ;
-						
-					end
-					
-					else begin
-					
-						R[30:23] <= expB;
-					end
-				end
-				
-			else begin //00.xxxx caso triste
+			//else begin //00.xxxx caso triste
 				ready <= 1;
 				nextState <= S11;
 				for(i=8'b00000000;i<8'b00011000;i=i+8'b00000001) begin
@@ -386,25 +386,16 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 					j= j+1;
 					//else OUT <=8'b00000000;
 				end
+				 R[22 : 0] <= result >> (8'b00011001 - OUT);
+				//R[22 : 0] <= result << (8'b00011001 - OUT); //se shiftea para poner el primer 1 en la poscion 24 y los sigientes 23 bits son la mantisa
 				
-				R[22 : 0] <= result[23:1]<< OUT; //se shiftea para poner el primer 1 en la poscion 24 y los sigientes 23 bits son la mantisa
-				
-				if ((expA + (8'b00011000- OUT)) < 8'b11111110) // Si no existe overflow
-					R[30:23] <= expA + (8'b00011000-OUT);  
+				if ((expA + (8'b00011001- OUT)) < 8'b11111110) // Si no existe overflow
+					R[30:23] <= expA + (8'b00011001-OUT);  
 				else 
 					R <= ~R;	//Infinito
 				
 				
-//				if(OUT != 0)  //para que no haya excepcion en el result
-//					R[22 : 23- OUT] <= result[(OUT-1):0];  //guardamos los numeros anteri||es al primer uno y los enviamos a las primeras posiciones del resultado, ya probamos que funciona, GUT
-//				else
-//					R[0] <= result[0]; //Cuando el 1 esté en la posicion 0 de result
-//					
-//				if ((expA + (24- OUT)) < 254) // Si no existe overflow
-//					R[30:23] <= expA + (24-OUT);  
-//				else 
-//					R = ~R;	//Infinito
-			end						
+			//end						
 	end
 	
 	
@@ -489,8 +480,8 @@ module test_bench();
 	//start = 1; oper = 0; A =32'b11000000101000000000000000000000; B =32'b11000000101000000000000000000000; #60ns; //mismo val|| a=-5 b=-5
 		
 		//restas  
-		start = 1; oper = 1; A =32'b01000001110000000000000000000000; B =32'b01000000000000000000000000000000; #300ns; //signos iguales, distinto exponente, a=24 b=2	
-	//	start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b01000000000000000000000000000000; #300ns; //signos iguales, distinto exponente, a=4 b=2
+	//start = 1; oper = 1; A =32'b01000001110000000000000000000000; B =32'b01000000000000000000000000000000; #300ns; //signos iguales, distinto exponente, a=24 b=2	
+		start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b01000000000000000000000000000000; #300ns; //signos iguales, distinto exponente, a=4 b=2
 	//start = 1; oper = 1; A =32'b01000000000000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos iguales, distinto exponente, a=2 b=4
 	//start = 1; oper = 1; A =32'b01000000101000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos iguales, mismo exponente, a=5 b=4
 	//start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b01000000101000000000000000000000; #60ns; //signos iguales, mismo exponente, a=4 b=5
