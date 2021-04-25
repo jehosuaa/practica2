@@ -3,147 +3,111 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 125C Model Setup 'currentState.S0'
-Slack : -15.936
-TNS   : -641.201
+Slack : -16.663
+TNS   : -363.286
 
 Type  : Slow 1200mV 125C Model Setup 'oper'
-Slack : -14.048
-TNS   : -776.302
-
-Type  : Slow 1200mV 125C Model Setup 'currentState.S1'
-Slack : -11.597
-TNS   : -704.724
+Slack : -14.060
+TNS   : -840.802
 
 Type  : Slow 1200mV 125C Model Setup 'clk'
-Slack : -4.236
-TNS   : -12.288
+Slack : -6.672
+TNS   : -21.155
 
 Type  : Slow 1200mV 125C Model Hold 'oper'
-Slack : -0.797
-TNS   : -2.076
-
-Type  : Slow 1200mV 125C Model Hold 'currentState.S0'
-Slack : 0.063
-TNS   : 0.000
+Slack : -0.423
+TNS   : -2.413
 
 Type  : Slow 1200mV 125C Model Hold 'clk'
-Slack : 0.737
+Slack : 0.451
 TNS   : 0.000
 
-Type  : Slow 1200mV 125C Model Hold 'currentState.S1'
-Slack : 0.923
+Type  : Slow 1200mV 125C Model Hold 'currentState.S0'
+Slack : 0.727
 TNS   : 0.000
 
 Type  : Slow 1200mV 125C Model Minimum Pulse Width 'oper'
 Slack : -3.000
-TNS   : -12.020
+TNS   : -81.612
 
 Type  : Slow 1200mV 125C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -11.922
-
-Type  : Slow 1200mV 125C Model Minimum Pulse Width 'currentState.S1'
-Slack : 0.318
-TNS   : 0.000
+TNS   : -13.409
 
 Type  : Slow 1200mV 125C Model Minimum Pulse Width 'currentState.S0'
-Slack : 0.353
+Slack : 0.347
 TNS   : 0.000
 
 Type  : Slow 1200mV -40C Model Setup 'currentState.S0'
-Slack : -14.094
-TNS   : -556.091
+Slack : -14.503
+TNS   : -321.513
 
 Type  : Slow 1200mV -40C Model Setup 'oper'
-Slack : -12.456
-TNS   : -669.747
-
-Type  : Slow 1200mV -40C Model Setup 'currentState.S1'
-Slack : -10.253
-TNS   : -614.578
+Slack : -12.293
+TNS   : -722.666
 
 Type  : Slow 1200mV -40C Model Setup 'clk'
-Slack : -3.603
-TNS   : -9.983
+Slack : -5.374
+TNS   : -16.827
 
 Type  : Slow 1200mV -40C Model Hold 'oper'
-Slack : -0.598
-TNS   : -1.894
-
-Type  : Slow 1200mV -40C Model Hold 'currentState.S0'
-Slack : -0.035
-TNS   : -0.067
+Slack : -0.166
+TNS   : -0.466
 
 Type  : Slow 1200mV -40C Model Hold 'clk'
-Slack : 0.740
+Slack : 0.363
 TNS   : 0.000
 
-Type  : Slow 1200mV -40C Model Hold 'currentState.S1'
-Slack : 0.829
+Type  : Slow 1200mV -40C Model Hold 'currentState.S0'
+Slack : 0.925
 TNS   : 0.000
-
-Type  : Slow 1200mV -40C Model Minimum Pulse Width 'clk'
-Slack : -3.000
-TNS   : -10.710
 
 Type  : Slow 1200mV -40C Model Minimum Pulse Width 'oper'
 Slack : -3.000
-TNS   : -10.203
+TNS   : -64.275
+
+Type  : Slow 1200mV -40C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -11.995
 
 Type  : Slow 1200mV -40C Model Minimum Pulse Width 'currentState.S0'
-Slack : 0.298
-TNS   : 0.000
-
-Type  : Slow 1200mV -40C Model Minimum Pulse Width 'currentState.S1'
-Slack : 0.338
+Slack : 0.118
 TNS   : 0.000
 
 Type  : Fast 1200mV -40C Model Setup 'currentState.S0'
-Slack : -7.108
-TNS   : -263.613
+Slack : -7.566
+TNS   : -150.235
 
 Type  : Fast 1200mV -40C Model Setup 'oper'
-Slack : -5.872
-TNS   : -333.511
-
-Type  : Fast 1200mV -40C Model Setup 'currentState.S1'
-Slack : -5.411
-TNS   : -308.770
+Slack : -5.981
+TNS   : -366.246
 
 Type  : Fast 1200mV -40C Model Setup 'clk'
-Slack : -1.470
-TNS   : -3.359
+Slack : -2.983
+TNS   : -7.837
 
 Type  : Fast 1200mV -40C Model Hold 'oper'
-Slack : -0.436
-TNS   : -0.941
-
-Type  : Fast 1200mV -40C Model Hold 'currentState.S0'
-Slack : 0.140
-TNS   : 0.000
+Slack : -0.367
+TNS   : -3.420
 
 Type  : Fast 1200mV -40C Model Hold 'clk'
-Slack : 0.303
+Slack : 0.192
 TNS   : 0.000
 
-Type  : Fast 1200mV -40C Model Hold 'currentState.S1'
-Slack : 0.405
+Type  : Fast 1200mV -40C Model Hold 'currentState.S0'
+Slack : 0.305
 TNS   : 0.000
 
 Type  : Fast 1200mV -40C Model Minimum Pulse Width 'oper'
 Slack : -3.000
-TNS   : -13.154
+TNS   : -38.539
 
 Type  : Fast 1200mV -40C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -9.218
+TNS   : -11.216
 
 Type  : Fast 1200mV -40C Model Minimum Pulse Width 'currentState.S0'
-Slack : 0.255
-TNS   : 0.000
-
-Type  : Fast 1200mV -40C Model Minimum Pulse Width 'currentState.S1'
-Slack : 0.329
+Slack : 0.159
 TNS   : 0.000
 
 ------------------------------------------------------------

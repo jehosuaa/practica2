@@ -136,15 +136,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "oper",
+					"name" : "A[0]",
 					"strict" : false
 				},
 				{
 					"name" : "B[0]",
-					"strict" : false
-				},
-				{
-					"name" : "A[0]",
 					"strict" : false
 				},
 				{
@@ -153,6 +149,10 @@
 				},
 				{
 					"name" : "B[31]",
+					"strict" : false
+				},
+				{
+					"name" : "oper",
 					"strict" : false
 				},
 				{

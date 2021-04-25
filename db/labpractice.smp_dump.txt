@@ -1,9 +1,10 @@
 
 State Machine - |addsub754_JJ|currentState
-Name currentState.S0 currentState.S4 currentState.S3 currentState.S2 currentState.S1 currentState.S11 
-currentState.S11 0 0 0 0 0 0 
-currentState.S1 0 0 0 0 1 1 
-currentState.S2 0 0 0 1 0 1 
-currentState.S3 0 0 1 0 0 1 
-currentState.S4 0 1 0 0 0 1 
-currentState.S0 1 0 0 0 0 1 
+Name currentState.S0 currentState.S6 currentState.S4 currentState.S3 currentState.S2 currentState.S1 currentState.S11 
+currentState.S11 0 0 0 0 0 0 0 
+currentState.S1 0 0 0 0 0 1 1 
+currentState.S2 0 0 0 0 1 0 1 
+currentState.S3 0 0 0 1 0 0 1 
+currentState.S4 0 0 1 0 0 0 1 
+currentState.S6 0 1 0 0 0 0 1 
+currentState.S0 1 0 0 0 0 0 1 

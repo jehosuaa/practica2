@@ -16,14 +16,14 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	reg mayA;
 	reg [7:0] OUT;
 	//integer OUT;
-	
+	reg [7:0] probando;
 	reg [23:0] aux ;// para correr mantiza
 	reg [7:0]diferencia ;// variable para ver la diferencia entre exp
 	logic [7:0]i;
 	integer j=0;
 	//integer i;
 	
-	typedef enum logic [2:0] {S0,S1,S2,S3,S4,S5,S11} State;
+	typedef enum logic [2:0] {S0,S1,S2,S3,S4,S5,S6,S11} State;
 	
 	
 	State currentState, nextState;
@@ -378,37 +378,54 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 //				end
 				
 			//else begin //00.xxxx caso triste
-				ready <= 1;
-				nextState <= S11;
+				ready <= 0;
+				nextState <= S6;
 				for(i=8'b00000000;i<8'b00011000;i=i+8'b00000001) begin
-					if(result[j]==1) 
-						OUT <=i;			//va guardar la posicion del ultimo bit donde encuentre 1	
+					if(result[j]==1) begin
+						 OUT <=i;			//va guardar la posicion del ultimo bit donde encuentre 1
+						 //result<=result<< j;
+					end
 					j= j+1;
 					//else OUT <=8'b00000000;
 				end
-				 R[22 : 0] <= result >> (8'b00011001 - OUT);
-				//R[22 : 0] <= result << (8'b00011001 - OUT); //se shiftea para poner el primer 1 en la poscion 24 y los sigientes 23 bits son la mantisa
+
+				//R[22:0]<=result[23:1];
+		
 				
-				if ((expA + (8'b00011001- OUT)) < 8'b11111110) // Si no existe overflow
-					R[30:23] <= expA + (8'b00011001-OUT);  
-				else 
-					R <= ~R;	//Infinito
 				
 				
 			//end						
 	end
 	
 	
+	
 	end
 	
 	
+	
+	
+	S6: begin
+		ready <= 1;
+		nextState <= S11;
+		result<=result <<(8'b00011001-OUT);
+		
+		if ((expA  + (8'b00010111-OUT)) < 8'b11111110) // Si no existe overflow
+					R[30:23] <= expA - (8'b00010111-OUT);  
+		else 
+    			R <= ~R;	//Infinito
+	
+	end
+	
 	S11: begin
+	
+	probando <=8'b00010000;
+	
 	i <=8'b00000000;
 	expA <= 8'b00000000;
 	expB <= 8'b00000000;
 	mantA <= 23'b00000000000000000000000;
 	mantB <= 23'b00000000000000000000000;	
-	R <= 2'h00;
+	R[22:0] <= result[24:2];
 	OUT <= 8'b00000000;
 	ready <= 0;
 	aux <= 23'b00000000000000000000000;
@@ -480,9 +497,9 @@ module test_bench();
 	//start = 1; oper = 0; A =32'b11000000101000000000000000000000; B =32'b11000000101000000000000000000000; #60ns; //mismo val|| a=-5 b=-5
 		
 		//restas  
-	//start = 1; oper = 1; A =32'b01000001110000000000000000000000; B =32'b01000000000000000000000000000000; #300ns; //signos iguales, distinto exponente, a=24 b=2	
-		start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b01000000000000000000000000000000; #300ns; //signos iguales, distinto exponente, a=4 b=2
-	//start = 1; oper = 1; A =32'b01000000000000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos iguales, distinto exponente, a=2 b=4
+	//start = 1; oper = 1; A =32'b01000001110000000000000000000000; B =32'b01000000000000000000000000000000; #400ns; //signos iguales, distinto exponente, a=24 b=2	
+	//start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b01000000000000000000000000000000; #300ns; //signos iguales, distinto exponente, a=4 b=2
+	//start = 1; oper = 1; A =32'b01000000000000000000000000000000; B =32'b01000000100000000000000000000000; #300ns; //signos iguales, distinto exponente, a=2 b=4
 	//start = 1; oper = 1; A =32'b01000000101000000000000000000000; B =32'b01000000100000000000000000000000; #60ns; //signos iguales, mismo exponente, a=5 b=4
 	//start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b01000000101000000000000000000000; #60ns; //signos iguales, mismo exponente, a=4 b=5
 	//start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b11000000000000000000000000000000; #60ns; //signos distintos, distinto exponente, a=4 b=-2
