@@ -11,24 +11,24 @@ cModel Technology
 Z0 dD:/Udea/Semestre6/Digitales 2/practica2/practica2/simulation/modelsim
 vaddsub754_JJ
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1619342383
+Z2 !s110 1619410303
 !i10b 1
-!s100 `9h=WC2@2=A1M1RcPK@n_0
+!s100 gXM[9fIXif<C9IFnn17@Q2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-If7a:X9U;G7E0[G:[o7fBK2
+I7=>02;mSACAAXmDQI^Bf03
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-Z5 w1619342372
+Z5 w1619410238
 Z6 8D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv
 Z7 FD:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv
-!i122 1
-L0 1 463
+!i122 0
+L0 1 497
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1619342383.000000
+Z9 !s108 1619410303.000000
 !s107 D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv|
 Z10 !s90 -reportprogress|300|-sv|-work|work|+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2|D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv|
 !i113 1
@@ -40,17 +40,17 @@ vtest_bench
 R1
 R2
 !i10b 1
-!s100 `5Xma2W786[W03T@j7o5L2
+!s100 XG;@9]h55hooS[YWH8G]U3
 R3
-I65MbXWBTEd2>HM``4S>f02
+IZQOlEhHg6]a]2fN4O3A3]0
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 1
-L0 465 53
+!i122 0
+L0 499 55
 R8
 r1
 !s85 0

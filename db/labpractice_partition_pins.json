@@ -140,43 +140,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "B[0]",
-					"strict" : false
-				},
-				{
-					"name" : "A[31]",
-					"strict" : false
-				},
-				{
-					"name" : "B[31]",
-					"strict" : false
-				},
-				{
 					"name" : "oper",
 					"strict" : false
 				},
 				{
-					"name" : "A[30]",
+					"name" : "B[0]",
 					"strict" : false
 				},
 				{
-					"name" : "B[30]",
-					"strict" : false
-				},
-				{
-					"name" : "A[6]",
-					"strict" : false
-				},
-				{
-					"name" : "B[6]",
-					"strict" : false
-				},
-				{
-					"name" : "A[7]",
-					"strict" : false
-				},
-				{
-					"name" : "B[7]",
+					"name" : "clk",
 					"strict" : false
 				},
 				{
@@ -185,6 +157,22 @@
 				},
 				{
 					"name" : "B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "B[3]",
 					"strict" : false
 				},
 				{
@@ -204,19 +192,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "A[2]",
+					"name" : "A[6]",
 					"strict" : false
 				},
 				{
-					"name" : "B[2]",
+					"name" : "B[6]",
 					"strict" : false
 				},
 				{
-					"name" : "A[3]",
+					"name" : "A[7]",
 					"strict" : false
 				},
 				{
-					"name" : "B[3]",
+					"name" : "B[7]",
 					"strict" : false
 				},
 				{
@@ -348,19 +336,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "A[28]",
+					"name" : "A[24]",
 					"strict" : false
 				},
 				{
-					"name" : "B[28]",
+					"name" : "B[24]",
 					"strict" : false
 				},
 				{
-					"name" : "A[29]",
+					"name" : "A[25]",
 					"strict" : false
 				},
 				{
-					"name" : "B[29]",
+					"name" : "B[25]",
 					"strict" : false
 				},
 				{
@@ -380,23 +368,35 @@
 					"strict" : false
 				},
 				{
-					"name" : "A[24]",
+					"name" : "A[28]",
 					"strict" : false
 				},
 				{
-					"name" : "B[24]",
+					"name" : "B[28]",
 					"strict" : false
 				},
 				{
-					"name" : "A[25]",
+					"name" : "A[29]",
 					"strict" : false
 				},
 				{
-					"name" : "B[25]",
+					"name" : "B[29]",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "A[31]",
+					"strict" : false
+				},
+				{
+					"name" : "B[31]",
+					"strict" : false
+				},
+				{
+					"name" : "A[30]",
+					"strict" : false
+				},
+				{
+					"name" : "B[30]",
 					"strict" : false
 				},
 				{
