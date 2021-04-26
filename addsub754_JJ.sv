@@ -12,6 +12,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	reg [23:0] mantB;// los primeros 23 bits son la mantisa y msb es el 1 que trae p|| defecto    
 	reg [24:0] result;
 	reg mayA;
+	reg [31:0] rA,rB;
 	reg [7:0] OUT;
 	reg [7:0] probando;
 	reg [23:0] aux ;// para correr mantiza
@@ -48,7 +49,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	
 	S0: nextState <= S1;
 	S1: begin 
-	if(((expA !=5'b00000) && (expB !=5'b00000)) && ((expA !=5'b11111) && (expB !=5'b11111)) && ((A != B) || ( (A == B)  && (oper == 0 )))  ) begin
+	if(((expA !=5'b00000) && (expB !=5'b00000)) && ((expA !=5'b11111) && (expB !=5'b11111)) && ((rA != rB) || ( (rA == rB)  && (oper == 0 )))  ) begin
 				nextState <= S2;
 				//ready <= 1;
 		end
@@ -97,30 +98,27 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	
 	S0: begin
 	    ready <= 0;
-//		if (start == 1) begin
-			//cambio<=0;
-			result <=25'b0;
-			mantA[23] <= 1;
-			mantB[23] <= 1;
-			//sA <= A[31];
-			//sB <= B[31];
-			expA <= A[30:23];
-			expB <= B[30:23];
-			mantA[22:0] <= A[22:0];
-			mantB[22:0] <= B[22:0];	
-			R <= 2'h00;
-			OUT <= 8'b00000000;
-			//nextState <= S1;
-//		end	
+		 
+		 rA<=A;
+		 rB<=B;
+		result <=25'b0;
+		mantA[23] <= 1;
+		mantB[23] <= 1;
+		expA <= A[30:23];
+		expB <= B[30:23];
+		mantA[22:0] <= A[22:0];
+		mantB[22:0] <= B[22:0];	
+		R <= 2'h00;
+		OUT <= 8'b00000000;
 		end
 		
 		
 	S1: begin //1  //etapa para mirar casos especiales y de no ser el caso mirar diferencia entre exp
 	
 		
-			if(((expA !=5'b00000) && (expB !=5'b00000)) && ((expA !=5'b11111) && (expB !=5'b11111)) && ((A != B) || ( (A == B)  && (oper == 0 )))  ) begin //3
-				//nextState <= S2;
-				//se verifica que los exp no entren dentro de las excepciones 
+			if(((expA !=5'b00000) && (expB !=5'b00000)) && ((expA !=5'b11111) && (expB !=5'b11111)) && ((rA != rB) || ( (rA == rB)  && (oper == 0 )))  ) begin //3
+				
+				
 				if (expA > expB) begin //4					
 					mayA <= 1;  //expA may|| que B =1
 					diferencia <= expA-expB;
@@ -139,22 +137,21 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			end//3
 								
 			else if(expA== 5'b00000 || expB ==5'b00000) begin//6 // se mira si los exp de algunos de las datos ingresados estan reservados para el caso del 0
-				//nextState <= S11;
-				//ready <= 1;
+				
 				if(expA== 5'b00000 ) begin//7 // en el caso de uno ser cero el resultado sera el otro numero en el caso de la suma
 			
 					if(oper ==0) 
-						R <= B;  // 0+B=B
+						R <= rB;  // 0+B=B
 				
 					else  begin //9		//0-B=-B
-						R[30:0] <= B[30:0];
+						R[30:0] <= rB[30:0];
 						R[31] <= ~(R[31]); // se cambia el signo p|| el contrario
 						end//9
 					
 				end//7
 				
 				else //caso donde expB=0
-					R <= A; // A+0=0 y A-0=0
+					R <= rA; // A+0=0 y A-0=0
 				
 			end //6	
 		
@@ -163,10 +160,10 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 				//ready <= 1;
 				//nextState <= S11;
 				if(expA== 5'b11111)
-					R <= A; // en caso que alguno sea Nan o infinito el resultado sera ese numero
+					R <= rA; // en caso que alguno sea Nan o infinito el resultado sera ese numero
 					
 				else
-					R <= B;
+					R <= rB;
 			
 			end//10	
 						
@@ -185,10 +182,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		
 	S2: begin // igualar exp
 	
-		//if(cambio ==0) begin // se mira que las entradas que ya estan registradas no hayan cambiado en la mitad de la operacion
-	
-//		if(start == 1 && ready ==0)begin
-		//nextState <= S3;
+		
 		if (mayA == 1 && diferencia != 8'b0) begin
 			expB <= expB + diferencia;//+ diferencia ***
 			aux <= aux >> diferencia;
@@ -200,21 +194,18 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		else   aux <=23'b0000000000000000000000000;
 
 		
-		//end
-		//else nextState <= S11;
 	end
 		
 		
 	S3: begin // suma o resta ya con los exp iguales
 	
-	//if(cambio ==0) begin // se mira que las entradas que ya estan registradas no hayan cambiado en la mitad de la operacion
+
+	if((oper==0 && (rA[31]== rB[31]))|| (oper==1 && (rA[31]!=rB[31]))) begin //SUMA // oper=0 suma y oper=1 resta
 	
-	//nextState <= S4;
-	if(oper==0) begin //SUMA // oper=0 suma y oper=1 resta
 	
-		if(A[31]==B[31]) begin //ambos numeros con signos iguales
-			//nextState <= S4;
-			R[31] <= A[31]; //signo de la salida va a ser el signo de cualquiera de los dos  numeros ya que tienen igual signo		
+		if(rA[31]== rB[31]) begin //ambos numeros con signos iguales y suma , entonces sumo
+	
+			R[31] <= rA[31]; //signo de la salida va a ser el signo de cualquiera de los dos  numeros ya que tienen igual signo		
 			if (mayA == 1 && diferencia != 0) //A>B
 				result <= mantA + aux;				
 				
@@ -226,38 +217,24 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 				result <= mantB + mantA;
 		end
 		
-		else begin //A y B signos diferentes, suma
-			
-			if (mayA == 1 && diferencia != 0) begin
+		else begin	//signo diferente y resta , entonces sumo	 //A- -B  -A-+B
+		           
+			R[31] <= rA[31]; //Simepre signo de A
+			if (mayA == 1 && diferencia != 0) begin 
 				result = mantA + aux;
-				R[31] <= A[31]; // si se suman el resultado tendra el signo del numero may||, en este caso A
-									// ya que el exp de A es mas gr&&e				
+								
 			end
 				
 			else if (mayA == 0 && diferencia != 0 ) begin
 				result = mantB + aux;
-				R[31] <= B[31]; // si se suman el resultado tendra el signo del numero may||, en este caso B
-									 // ya que el exp de B es mas gr&&e				
+							
 			end
 									 
-			//else if(diferencia == 0) begin //exp iguales
+			
 			else  begin //exp iguales
+			
 				result <= mantB + mantA;
-				if (mantA > mantB) begin
-						R[31] <= A[31]; // si se suman el resultado tendra el signo del numero may||, en este caso A
-															 // ya que la mantisa de A es mas gr&&e
-				end											 
-				else if (mantB > mantA) begin
-					
-					R[31] <= B[31]; // de caso contrario mantisa de B mas grande, por tanto result tiene el signo de B
-				
-				end
-				else begin
-					
-					R <= 2'h00;
-				
-				end
-				
+
 			end //suma se supone que esta bien
 			
 		end
@@ -265,81 +242,91 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 			
 	end
 	
-	else begin// RESTA // definir la resta , mirar bien 
+	else begin// RESTA /// Resto  ((oper==1 && (A[31]==B[31]))|| (oper==0 && (A[31]!=B[31]))) 
 		
-		if(A[31]==B[31]) begin //ambos numeros con signos iguales
+		if(rA[31]== rB[31]) begin //ambos numeros con signos iguales y resta, entonces resto  A-B
 		
 			if (mayA == 1 && diferencia != 0) begin//A>B
-					result <= mantA - aux; //signo del resultado es el de A //arreglar
+					result <= mantA - aux; //signo del resultado es el de A 
+					R[31] <= rA[31];
 					
-					if(A[31]==0) begin // los dos positivos A-B , siempre signo de A
-						R[31] <= A[31];
-					end
 					
-					if(A[31]==1) begin  // los dos son negativos A-B da el signo contrario a A
-						R[31] <= ~A[31];
-					end
 			end
 					
 					
 			else if (mayA == 0 && diferencia != 0 ) begin//B>A
-			
-			if(A[31]==0) begin  // los dos son positivos
-					result <= mantB - aux; 
-					R[31] <= ~B[31];      //signo del resultado es el contrario al de B //
-			end
-			
-			if(A[31]==1) begin  // los dos son negativos
-					result <= mantB - aux; 
-					R[31] <= B[31];      //signo del resultado es el de B //
-					
-			end
-			
-			
-			
-			
+				result <= mantB - aux;
+				R[31] <= ~rA[31];
 			
 			
 			end
 					
-			//else if(diferencia == 0) begin // exponentes iguales
-			else  begin
-				if(A[31]==0) begin //positivos 
+		
+			else  begin //exp iguales
+			 
 				if(mantA > mantB) begin 
 						result <= mantA - mantB; //A-B .A>B. 10-5=5
-						R[31] <= A[31]; //signo del resultado es el de A
+						R[31] <= rA[31]; //signo del resultado es el de A
 						//nextState <= S4;
 					end
+					
 				else if(mantB > mantA) begin
 					result <= mantB - mantA; //A-B .B>A. 5-10=-5
-					R[31] <= ~A[31]; //signo del resultado es el contrario al de A
+					R[31] <= ~rA[31]; //signo del resultado es el contrario al de A
 					//nextState <= S4;
 					end
-				end //melo
 				
 					
 				end
 			end
 		
-		else begin //A y B signos diferentes
-		R[31] <= A[31];      //como el - le cambia el signo a B, A y B teminarian sum&&ose con el mismo signo
-												 // ya que seria A-(-B) o -A-(B)
+		else begin //A y B signos diferentes y suma , entonce resto
+					//A + -B   -A + B
 		
-		if (mayA == 1 && diferencia != 0) begin//A>B
-					result <= mantA + aux; 
-					//nextState <= S4;
+		if (mayA == 1 && diferencia != 0) begin//A>B //la operacion conserva el signo de A
+				
+				R[31] <= rA[31];
+				
+				if(rA[31]==0) 
+					result <= mantA - aux;
+				
+				else 
+					result <= aux - mantA;
+
+					
 			end
 					
 					
-			else if (mayA == 0 && diferencia != 0 ) begin//B>A
-					result <= mantB + aux; 
-					//nextState <= S4;
+		else if (mayA == 0 && diferencia != 0 ) begin//B>A //A + -B   -A + B
+		
+					R[31] <= rB[31];
+				
+				if(rA[31]==0) 
+					result <= aux - mantB;
+				
+				else 
+					result <= mantB - aux;
 					
 			end
 					
-			else if(diferencia == 0) begin //no imp||ta cual mantisa es may|| ya que se van a terminar sum&&o
-						result <= mantA + mantB;
-						//nextState <= S4;
+		else begin //exp iguales A + -B   -A + B
+		
+		
+				if(rA[31]==0)
+					
+					result <= mantA - mantB;
+
+					
+				else 
+						result <= mantB - mantA;
+		
+		
+				if(mantA > mantB) 
+					R[31] <= rA[31];	
+		
+					
+				else if(mantB > mantA)
+						R[31] <= rB[31];
 
 				end		
 		end
@@ -347,18 +334,16 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		end//melo
 		
 
-   //end
-	
-	//else nextState <= S11; // si las entradas cambiaron empiece a calcular de nuevo la suma
+   
 	
 	end
 	
-	S4: begin // n||malizar la mantisa  //10.00 //11.11 //01.0 //0.1
+	S4: begin // normalizar la mantisa  //10.00 //11.11 //01.0 //0.1
 	
 		//if(cambio ==0) begin // se mira que las entradas que ya estan registradas no hayan cambiado en la mitad de la operacion
 	
 		
-		if(oper==0) begin //suma
+		if(oper==0 ) begin //suma
 
 			//nextState <= S11;
 			ready <= 1;
@@ -466,29 +451,18 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	aux <= 23'b00000000000000000000000;
 	diferencia <= 8'b00000000;
 	result <= 24'b000000000000000000000000;
+	rA <= 2'h00;
+	rB <= 2'h00;
 	
 	
-//	if (start == 0 ) begin 
-//		nextState <= S11;
-//		ready <= 0;
-//		end
-	
-		
 
-		
-	//else begin
-	
-	//nextState <= S0;
-	//ready <= 0;
-	
-	//end
 	
 	end
 		
 	
 
 	default: 
-				//nextState <= S11;
+				
 		R <= 2'h00;
 				
 		endcase

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for labpractice
-Sun Apr 25 23:10:59 2021
+Mon Apr 26 00:40:33 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -48,15 +48,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Apr 25 23:10:59 2021       ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 26 00:40:33 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; labpractice                                 ;
 ; Top-level Entity Name              ; addsub754_JJ                                ;
 ; Family                             ; Cyclone 10 LP                               ;
-; Total logic elements               ; 983                                         ;
-;     Total combinational functions  ; 979                                         ;
-;     Dedicated logic registers      ; 168                                         ;
-; Total registers                    ; 168                                         ;
+; Total logic elements               ; 963                                         ;
+;     Total combinational functions  ; 959                                         ;
+;     Dedicated logic registers      ; 186                                         ;
+; Total registers                    ; 186                                         ;
 ; Total pins                         ; 101                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -184,20 +184,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 983       ;
+; Estimated Total logic elements              ; 963       ;
 ;                                             ;           ;
-; Total combinational functions               ; 979       ;
+; Total combinational functions               ; 959       ;
 ; Logic element usage by number of LUT inputs ;           ;
 ;     -- 4 input functions                    ; 478       ;
-;     -- 3 input functions                    ; 384       ;
-;     -- <=2 input functions                  ; 117       ;
+;     -- 3 input functions                    ; 337       ;
+;     -- <=2 input functions                  ; 144       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 816       ;
-;     -- arithmetic mode                      ; 163       ;
+;     -- normal mode                          ; 820       ;
+;     -- arithmetic mode                      ; 139       ;
 ;                                             ;           ;
-; Total registers                             ; 168       ;
-;     -- Dedicated logic registers            ; 168       ;
+; Total registers                             ; 186       ;
+;     -- Dedicated logic registers            ; 186       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 101       ;
@@ -205,9 +205,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 168       ;
-; Total fan-out                               ; 4055      ;
-; Average fan-out                             ; 3.01      ;
+; Maximum fan-out                             ; 186       ;
+; Total fan-out                               ; 3989      ;
+; Average fan-out                             ; 2.96      ;
 +---------------------------------------------+-----------+
 
 
@@ -216,7 +216,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; |addsub754_JJ              ; 979 (979)           ; 168 (168)                 ; 0           ; 0            ; 0       ; 0         ; 101  ; 0            ; |addsub754_JJ       ; addsub754_JJ ; work         ;
+; |addsub754_JJ              ; 959 (959)           ; 186 (186)                 ; 0           ; 0            ; 0       ; 0         ; 101  ; 0            ; |addsub754_JJ       ; addsub754_JJ ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -242,15 +242,61 @@ Encoding Type:  One-Hot
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; mantB[23]                              ; Merged with mantA[23]                  ;
+; rA[22]                                 ; Merged with mantA[22]                  ;
+; rA[21]                                 ; Merged with mantA[21]                  ;
+; rA[20]                                 ; Merged with mantA[20]                  ;
+; rA[19]                                 ; Merged with mantA[19]                  ;
+; rA[18]                                 ; Merged with mantA[18]                  ;
+; rA[17]                                 ; Merged with mantA[17]                  ;
+; rA[16]                                 ; Merged with mantA[16]                  ;
+; rA[15]                                 ; Merged with mantA[15]                  ;
+; rA[14]                                 ; Merged with mantA[14]                  ;
+; rA[13]                                 ; Merged with mantA[13]                  ;
+; rA[12]                                 ; Merged with mantA[12]                  ;
+; rA[11]                                 ; Merged with mantA[11]                  ;
+; rA[10]                                 ; Merged with mantA[10]                  ;
+; rA[9]                                  ; Merged with mantA[9]                   ;
+; rA[8]                                  ; Merged with mantA[8]                   ;
+; rA[7]                                  ; Merged with mantA[7]                   ;
+; rA[6]                                  ; Merged with mantA[6]                   ;
+; rA[5]                                  ; Merged with mantA[5]                   ;
+; rA[4]                                  ; Merged with mantA[4]                   ;
+; rA[3]                                  ; Merged with mantA[3]                   ;
+; rA[2]                                  ; Merged with mantA[2]                   ;
+; rA[1]                                  ; Merged with mantA[1]                   ;
+; rA[0]                                  ; Merged with mantA[0]                   ;
+; rB[22]                                 ; Merged with mantB[22]                  ;
+; rB[21]                                 ; Merged with mantB[21]                  ;
+; rB[20]                                 ; Merged with mantB[20]                  ;
+; rB[19]                                 ; Merged with mantB[19]                  ;
+; rB[18]                                 ; Merged with mantB[18]                  ;
+; rB[17]                                 ; Merged with mantB[17]                  ;
+; rB[16]                                 ; Merged with mantB[16]                  ;
+; rB[15]                                 ; Merged with mantB[15]                  ;
+; rB[14]                                 ; Merged with mantB[14]                  ;
+; rB[13]                                 ; Merged with mantB[13]                  ;
+; rB[12]                                 ; Merged with mantB[12]                  ;
+; rB[11]                                 ; Merged with mantB[11]                  ;
+; rB[10]                                 ; Merged with mantB[10]                  ;
+; rB[9]                                  ; Merged with mantB[9]                   ;
+; rB[8]                                  ; Merged with mantB[8]                   ;
+; rB[7]                                  ; Merged with mantB[7]                   ;
+; rB[6]                                  ; Merged with mantB[6]                   ;
+; rB[5]                                  ; Merged with mantB[5]                   ;
+; rB[4]                                  ; Merged with mantB[4]                   ;
+; rB[3]                                  ; Merged with mantB[3]                   ;
+; rB[2]                                  ; Merged with mantB[2]                   ;
+; rB[1]                                  ; Merged with mantB[1]                   ;
+; rB[0]                                  ; Merged with mantB[0]                   ;
 ; OUT[6,7]                               ; Merged with OUT[5]                     ;
+; mantB[23]                              ; Merged with mantA[23]                  ;
 ; j[0..2]                                ; Stuck at GND due to stuck port data_in ;
 ; OUT[5]                                 ; Stuck at GND due to stuck port data_in ;
 ; currentState~4                         ; Lost fanout                            ;
 ; currentState~5                         ; Lost fanout                            ;
 ; currentState~6                         ; Lost fanout                            ;
 ; j[5..31]                               ; Lost fanout                            ;
-; Total Number of Removed Registers = 37 ;                                        ;
+; Total Number of Removed Registers = 83 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -269,12 +315,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 168   ;
-; Number of registers using Synchronous Clear  ; 47    ;
-; Number of registers using Synchronous Load   ; 47    ;
+; Total registers                              ; 186   ;
+; Number of registers using Synchronous Clear  ; 35    ;
+; Number of registers using Synchronous Load   ; 36    ;
 ; Number of registers using Asynchronous Clear ; 7     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 151   ;
+; Number of registers using Clock Enable       ; 169   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -284,24 +330,26 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|expB[0]      ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|expA[7]      ;
-; 10:1               ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |addsub754_JJ|aux[19]      ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 24 LEs               ; 32 LEs                 ; Yes        ; |addsub754_JJ|aux[8]       ;
-; 12:1               ; 4 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |addsub754_JJ|aux[5]       ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|expB[2]      ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|expA[3]      ;
+; 10:1               ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |addsub754_JJ|aux[16]      ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 24 LEs               ; 32 LEs                 ; Yes        ; |addsub754_JJ|aux[9]       ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |addsub754_JJ|aux[6]       ;
+; 12:1               ; 9 bits    ; 72 LEs        ; 27 LEs               ; 45 LEs                 ; Yes        ; |addsub754_JJ|result[2]    ;
 ; 13:1               ; 2 bits    ; 16 LEs        ; 10 LEs               ; 6 LEs                  ; Yes        ; |addsub754_JJ|aux[3]       ;
-; 14:1               ; 2 bits    ; 18 LEs        ; 10 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|aux[1]       ;
-; 14:1               ; 8 bits    ; 72 LEs        ; 32 LEs               ; 40 LEs                 ; Yes        ; |addsub754_JJ|R[25]~reg0   ;
-; 15:1               ; 9 bits    ; 90 LEs        ; 36 LEs               ; 54 LEs                 ; Yes        ; |addsub754_JJ|result[7]    ;
-; 15:1               ; 23 bits   ; 230 LEs       ; 92 LEs               ; 138 LEs                ; Yes        ; |addsub754_JJ|R[2]~reg0    ;
-; 16:1               ; 7 bits    ; 70 LEs        ; 28 LEs               ; 42 LEs                 ; Yes        ; |addsub754_JJ|result[14]   ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 24 LEs               ; 20 LEs                 ; Yes        ; |addsub754_JJ|result[20]   ;
-; 18:1               ; 2 bits    ; 24 LEs        ; 14 LEs               ; 10 LEs                 ; Yes        ; |addsub754_JJ|result[22]   ;
-; 19:1               ; 2 bits    ; 24 LEs        ; 14 LEs               ; 10 LEs                 ; Yes        ; |addsub754_JJ|result[24]   ;
+; 12:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |addsub754_JJ|R[25]~reg0   ;
+; 13:1               ; 7 bits    ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |addsub754_JJ|result[9]    ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 10 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|aux[0]       ;
+; 13:1               ; 23 bits   ; 184 LEs       ; 92 LEs               ; 92 LEs                 ; Yes        ; |addsub754_JJ|R[13]~reg0   ;
+; 14:1               ; 4 bits    ; 36 LEs        ; 20 LEs               ; 16 LEs                 ; Yes        ; |addsub754_JJ|result[17]   ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|result[21]   ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|result[24]   ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Mux4         ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Mux15        ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Mux20        ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Mux12        ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Mux23        ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|diferencia   ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |addsub754_JJ|Add4         ;
+; 8:1                ; 23 bits   ; 115 LEs       ; 46 LEs               ; 69 LEs                 ; No         ; |addsub754_JJ|Add4         ;
 ; 25:1               ; 6 bits    ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|OUT          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
@@ -312,25 +360,26 @@ Encoding Type:  One-Hot
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 101                         ;
-; cycloneiii_ff         ; 168                         ;
+; cycloneiii_ff         ; 186                         ;
 ;     CLR               ; 7                           ;
-;     ENA               ; 104                         ;
-;     ENA SCLR SLD      ; 47                          ;
+;     ENA               ; 133                         ;
+;     ENA SCLR SLD      ; 35                          ;
+;     ENA SLD           ; 1                           ;
 ;     plain             ; 10                          ;
-; cycloneiii_lcell_comb ; 979                         ;
-;     arith             ; 163                         ;
+; cycloneiii_lcell_comb ; 959                         ;
+;     arith             ; 139                         ;
 ;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 11                          ;
-;         3 data inputs ; 150                         ;
-;     normal            ; 816                         ;
-;         0 data inputs ; 3                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 97                          ;
-;         3 data inputs ; 234                         ;
+;         3 data inputs ; 126                         ;
+;     normal            ; 820                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 124                         ;
+;         3 data inputs ; 211                         ;
 ;         4 data inputs ; 478                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 16.00                       ;
-; Average LUT depth     ; 8.23                        ;
+; Max LUT depth         ; 18.00                       ;
+; Average LUT depth     ; 8.71                        ;
 +-----------------------+-----------------------------+
 
 
@@ -349,29 +398,29 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Apr 25 23:10:48 2021
+    Info: Processing started: Mon Apr 26 00:40:22 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off labpractice -c labpractice
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file addsub754_jj.sv
     Info (12023): Found entity 1: addsub754_JJ File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 1
-    Info (12023): Found entity 2: test_bench File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 499
+    Info (12023): Found entity 2: test_bench File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 473
 Info (12127): Elaborating entity "addsub754_JJ" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at addsub754_JJ.sv(16): object "probando" assigned a value but never read File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 16
+Warning (10036): Verilog HDL or VHDL warning at addsub754_JJ.sv(17): object "probando" assigned a value but never read File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 17
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 30 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file D:/Udea/Semestre6/Digitales 2/practica2/practica2/output_files/labpractice.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1087 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1067 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 68 input pins
     Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 986 logic cells
+    Info (21061): Implemented 966 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4761 megabytes
-    Info: Processing ended: Sun Apr 25 23:10:59 2021
+    Info: Peak virtual memory: 4754 megabytes
+    Info: Processing ended: Mon Apr 26 00:40:33 2021
     Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:25
+    Info: Total CPU time (on all processors): 00:00:24
 
 
 +------------------------------------------+
