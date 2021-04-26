@@ -1,5 +1,5 @@
 Analysis & Synthesis report for labpractice
-Mon Apr 26 00:40:33 2021
+Mon Apr 26 02:48:09 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -48,13 +48,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr 26 00:40:33 2021       ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 26 02:48:09 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; labpractice                                 ;
 ; Top-level Entity Name              ; addsub754_JJ                                ;
 ; Family                             ; Cyclone 10 LP                               ;
-; Total logic elements               ; 963                                         ;
-;     Total combinational functions  ; 959                                         ;
+; Total logic elements               ; 986                                         ;
+;     Total combinational functions  ; 982                                         ;
 ;     Dedicated logic registers      ; 186                                         ;
 ; Total registers                    ; 186                                         ;
 ; Total pins                         ; 101                                         ;
@@ -184,16 +184,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 963       ;
+; Estimated Total logic elements              ; 986       ;
 ;                                             ;           ;
-; Total combinational functions               ; 959       ;
+; Total combinational functions               ; 982       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 478       ;
-;     -- 3 input functions                    ; 337       ;
-;     -- <=2 input functions                  ; 144       ;
+;     -- 4 input functions                    ; 485       ;
+;     -- 3 input functions                    ; 348       ;
+;     -- <=2 input functions                  ; 149       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 820       ;
+;     -- normal mode                          ; 843       ;
 ;     -- arithmetic mode                      ; 139       ;
 ;                                             ;           ;
 ; Total registers                             ; 186       ;
@@ -206,7 +206,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 186       ;
-; Total fan-out                               ; 3989      ;
+; Total fan-out                               ; 4060      ;
 ; Average fan-out                             ; 2.96      ;
 +---------------------------------------------+-----------+
 
@@ -216,7 +216,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; |addsub754_JJ              ; 959 (959)           ; 186 (186)                 ; 0           ; 0            ; 0       ; 0         ; 101  ; 0            ; |addsub754_JJ       ; addsub754_JJ ; work         ;
+; |addsub754_JJ              ; 982 (982)           ; 186 (186)                 ; 0           ; 0            ; 0       ; 0         ; 101  ; 0            ; |addsub754_JJ       ; addsub754_JJ ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -331,20 +331,20 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|expB[2]      ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|expA[3]      ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|expA[0]      ;
 ; 10:1               ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |addsub754_JJ|aux[16]      ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 24 LEs               ; 32 LEs                 ; Yes        ; |addsub754_JJ|aux[9]       ;
-; 12:1               ; 4 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |addsub754_JJ|aux[6]       ;
-; 12:1               ; 9 bits    ; 72 LEs        ; 27 LEs               ; 45 LEs                 ; Yes        ; |addsub754_JJ|result[2]    ;
-; 13:1               ; 2 bits    ; 16 LEs        ; 10 LEs               ; 6 LEs                  ; Yes        ; |addsub754_JJ|aux[3]       ;
-; 12:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |addsub754_JJ|R[25]~reg0   ;
-; 13:1               ; 7 bits    ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |addsub754_JJ|result[9]    ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 24 LEs               ; 32 LEs                 ; Yes        ; |addsub754_JJ|aux[15]      ;
+; 11:1               ; 9 bits    ; 63 LEs        ; 27 LEs               ; 36 LEs                 ; Yes        ; |addsub754_JJ|result[1]    ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |addsub754_JJ|aux[7]       ;
+; 12:1               ; 7 bits    ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |addsub754_JJ|result[14]   ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 10 LEs               ; 6 LEs                  ; Yes        ; |addsub754_JJ|aux[2]       ;
+; 13:1               ; 4 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; Yes        ; |addsub754_JJ|result[17]   ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |addsub754_JJ|result[21]   ;
 ; 14:1               ; 2 bits    ; 18 LEs        ; 10 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|aux[0]       ;
 ; 13:1               ; 23 bits   ; 184 LEs       ; 92 LEs               ; 92 LEs                 ; Yes        ; |addsub754_JJ|R[13]~reg0   ;
-; 14:1               ; 4 bits    ; 36 LEs        ; 20 LEs               ; 16 LEs                 ; Yes        ; |addsub754_JJ|result[17]   ;
-; 15:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|result[21]   ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|result[24]   ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Mux4         ;
+; 13:1               ; 8 bits    ; 64 LEs        ; 40 LEs               ; 24 LEs                 ; Yes        ; |addsub754_JJ|R[23]~reg0   ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; Yes        ; |addsub754_JJ|result[23]   ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Mux7         ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Mux12        ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|Mux23        ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |addsub754_JJ|diferencia   ;
@@ -366,20 +366,20 @@ Encoding Type:  One-Hot
 ;     ENA SCLR SLD      ; 35                          ;
 ;     ENA SLD           ; 1                           ;
 ;     plain             ; 10                          ;
-; cycloneiii_lcell_comb ; 959                         ;
+; cycloneiii_lcell_comb ; 982                         ;
 ;     arith             ; 139                         ;
 ;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 11                          ;
 ;         3 data inputs ; 126                         ;
-;     normal            ; 820                         ;
+;     normal            ; 843                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 124                         ;
-;         3 data inputs ; 211                         ;
-;         4 data inputs ; 478                         ;
+;         2 data inputs ; 129                         ;
+;         3 data inputs ; 222                         ;
+;         4 data inputs ; 485                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 18.00                       ;
-; Average LUT depth     ; 8.71                        ;
+; Max LUT depth         ; 16.10                       ;
+; Average LUT depth     ; 8.49                        ;
 +-----------------------+-----------------------------+
 
 
@@ -398,13 +398,13 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Apr 26 00:40:22 2021
+    Info: Processing started: Mon Apr 26 02:47:57 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off labpractice -c labpractice
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file addsub754_jj.sv
     Info (12023): Found entity 1: addsub754_JJ File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 1
-    Info (12023): Found entity 2: test_bench File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 473
+    Info (12023): Found entity 2: test_bench File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 479
 Info (12127): Elaborating entity "addsub754_JJ" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at addsub754_JJ.sv(17): object "probando" assigned a value but never read File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 17
 Info (286030): Timing-Driven Synthesis is running
@@ -412,15 +412,15 @@ Info (17049): 30 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file D:/Udea/Semestre6/Digitales 2/practica2/practica2/output_files/labpractice.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1067 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1090 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 68 input pins
     Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 966 logic cells
+    Info (21061): Implemented 989 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4754 megabytes
-    Info: Processing ended: Mon Apr 26 00:40:33 2021
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Peak virtual memory: 4753 megabytes
+    Info: Processing ended: Mon Apr 26 02:48:09 2021
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:25
 
 
 +------------------------------------------+

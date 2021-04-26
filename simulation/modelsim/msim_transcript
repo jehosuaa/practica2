@@ -12,27 +12,27 @@
 # 
 # vlog -sv -work work +incdir+D:/Udea/Semestre6/Digitales\ 2/practica2/practica2 {D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 00:41:04 on Apr 26,2021
+# Start time: 02:48:53 on Apr 26,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+D:/Udea/Semestre6/Digitales 2/practica2/practica2" D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv 
 # -- Compiling module addsub754_JJ
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(111): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(171): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(194): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(454): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(455): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(466): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(460): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(461): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(472): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # -- Compiling module test_bench
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(484): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(485): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(490): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(491): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # 
 # Top level modules:
 # 	test_bench
-# End time: 00:41:04 on Apr 26,2021, Elapsed time: 0:00:00
+# End time: 02:48:53 on Apr 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 8
 # 
 vsim work.test_bench
 # vsim work.test_bench 
-# Start time: 00:41:12 on Apr 26,2021
+# Start time: 02:49:00 on Apr 26,2021
 # Loading sv_std.std
 # Loading work.test_bench
 # Loading work.addsub754_JJ
@@ -61,8 +61,8 @@ add wave -position end  sim:/test_bench/tb/reset
 add wave -position end  sim:/test_bench/tb/result
 add wave -position end  sim:/test_bench/tb/start
 run -all
-# ** Note: $stop    : D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(521)
-#    Time: 1227 ns  Iteration: 0  Instance: /test_bench
-# Break in Module test_bench at D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv line 521
-# End time: 00:43:34 on Apr 26,2021, Elapsed time: 0:02:22
+# ** Note: $stop    : D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv(536)
+#    Time: 792 ns  Iteration: 0  Instance: /test_bench
+# Break in Module test_bench at D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv line 536
+# End time: 02:53:20 on Apr 26,2021, Elapsed time: 0:04:20
 # Errors: 0, Warnings: 0
