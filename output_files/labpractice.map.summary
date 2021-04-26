@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Mon Apr 26 02:48:09 2021
+Analysis & Synthesis Status : Successful - Mon Apr 26 12:14:37 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : labpractice
 Top-level Entity Name : addsub754_JJ
 Family : Cyclone 10 LP
 Total logic elements : 986
-    Total combinational functions : 982
+    Total combinational functions : 983
     Dedicated logic registers : 186
 Total registers : 186
 Total pins : 101

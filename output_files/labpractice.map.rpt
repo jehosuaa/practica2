@@ -1,5 +1,5 @@
 Analysis & Synthesis report for labpractice
-Mon Apr 26 02:48:09 2021
+Mon Apr 26 12:14:37 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -48,13 +48,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr 26 02:48:09 2021       ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 26 12:14:37 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; labpractice                                 ;
 ; Top-level Entity Name              ; addsub754_JJ                                ;
 ; Family                             ; Cyclone 10 LP                               ;
 ; Total logic elements               ; 986                                         ;
-;     Total combinational functions  ; 982                                         ;
+;     Total combinational functions  ; 983                                         ;
 ;     Dedicated logic registers      ; 186                                         ;
 ; Total registers                    ; 186                                         ;
 ; Total pins                         ; 101                                         ;
@@ -186,14 +186,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Estimated Total logic elements              ; 986       ;
 ;                                             ;           ;
-; Total combinational functions               ; 982       ;
+; Total combinational functions               ; 983       ;
 ; Logic element usage by number of LUT inputs ;           ;
 ;     -- 4 input functions                    ; 485       ;
-;     -- 3 input functions                    ; 348       ;
+;     -- 3 input functions                    ; 349       ;
 ;     -- <=2 input functions                  ; 149       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 843       ;
+;     -- normal mode                          ; 844       ;
 ;     -- arithmetic mode                      ; 139       ;
 ;                                             ;           ;
 ; Total registers                             ; 186       ;
@@ -206,7 +206,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 186       ;
-; Total fan-out                               ; 4060      ;
+; Total fan-out                               ; 4063      ;
 ; Average fan-out                             ; 2.96      ;
 +---------------------------------------------+-----------+
 
@@ -216,7 +216,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; |addsub754_JJ              ; 982 (982)           ; 186 (186)                 ; 0           ; 0            ; 0       ; 0         ; 101  ; 0            ; |addsub754_JJ       ; addsub754_JJ ; work         ;
+; |addsub754_JJ              ; 983 (983)           ; 186 (186)                 ; 0           ; 0            ; 0       ; 0         ; 101  ; 0            ; |addsub754_JJ       ; addsub754_JJ ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -366,20 +366,20 @@ Encoding Type:  One-Hot
 ;     ENA SCLR SLD      ; 35                          ;
 ;     ENA SLD           ; 1                           ;
 ;     plain             ; 10                          ;
-; cycloneiii_lcell_comb ; 982                         ;
+; cycloneiii_lcell_comb ; 983                         ;
 ;     arith             ; 139                         ;
 ;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 11                          ;
 ;         3 data inputs ; 126                         ;
-;     normal            ; 843                         ;
+;     normal            ; 844                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 5                           ;
 ;         2 data inputs ; 129                         ;
-;         3 data inputs ; 222                         ;
+;         3 data inputs ; 223                         ;
 ;         4 data inputs ; 485                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 16.10                       ;
-; Average LUT depth     ; 8.49                        ;
+; Average LUT depth     ; 8.47                        ;
 +-----------------------+-----------------------------+
 
 
@@ -398,29 +398,28 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Apr 26 02:47:57 2021
+    Info: Processing started: Mon Apr 26 12:14:27 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off labpractice -c labpractice
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file addsub754_jj.sv
     Info (12023): Found entity 1: addsub754_JJ File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 1
-    Info (12023): Found entity 2: test_bench File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 479
+    Info (12023): Found entity 2: test_bench File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 460
 Info (12127): Elaborating entity "addsub754_JJ" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at addsub754_JJ.sv(17): object "probando" assigned a value but never read File: D:/Udea/Semestre6/Digitales 2/practica2/practica2/addsub754_JJ.sv Line: 17
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 30 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file D:/Udea/Semestre6/Digitales 2/practica2/practica2/output_files/labpractice.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 1090 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 68 input pins
     Info (21059): Implemented 33 output pins
     Info (21061): Implemented 989 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+Info (144001): Generated suppressed messages file D:/Udea/Semestre6/Digitales 2/practica2/practica2/output_files/labpractice.map.smsg
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4753 megabytes
-    Info: Processing ended: Mon Apr 26 02:48:09 2021
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:25
+    Info: Processing ended: Mon Apr 26 12:14:37 2021
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:22
 
 
 +------------------------------------------+

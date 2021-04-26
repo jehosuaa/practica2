@@ -14,12 +14,11 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	reg mayA;
 	reg [31:0] rA,rB;
 	reg [7:0] OUT;
-	reg [7:0] probando;
 	reg [23:0] aux ;// para correr mantiza
 	reg [7:0]diferencia ;// variable para ver la diferencia entre exp
 	logic [7:0]i;
-	//reg cambio;
-	//reg cambio1;
+
+
 	integer j=0;
 	
 	typedef enum logic [2:0] {S0,S1,S2,S3,S4,S6,S11} State;
@@ -39,15 +38,20 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	
 	end
 	
-//cu&&o coloco S11 me refiero al estado final, como aun no hemos defino cuantos estados tenemos puse uno alto
+
+
 	
-	
-	always_comb  begin
+	always_comb  begin //logica de siguiente estado
 	
 		case (currentState)
 	
 	
-	S0: nextState <= S1;
+	S0:begin
+		
+		if(start) nextState <= S1;
+		else nextState <= S0;
+		
+		end
 	S1: begin 
 	if(((expA !=8'b00000000) && (expB !=8'b00000000)) && ((expA !=8'b11111111) && (expB !=8'b11111111)) && ((rA != rB) || ( (rA == rB)  && (oper == 0 )))  ) begin
 				nextState <= S2;
@@ -74,12 +78,11 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		
 		end
 	S11: begin
-		if (start == 0 ) nextState <= S11;
+		if (start==0 ) nextState <= S0;
 					
 		  else begin
 		  
-		  nextState <= S0;
-		  //ready <= 0;
+		  nextState <= S11;
 		  
 		  end
 		 end
@@ -97,8 +100,8 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	case (currentState)
 	
 	S0: begin
+	
 	    ready <= 0;
-		 
 		 rA<=A;
 		 rB<=B;
 		result <=25'b0;
@@ -342,8 +345,7 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	
 	S4: begin // normalizar la mantisa  //10.00 //11.11 //01.0 //0.1
 	
-		//if(cambio ==0) begin // se mira que las entradas que ya estan registradas no hayan cambiado en la mitad de la operacion
-	
+
 		
 		if(((oper==0 && (rA[31]== rB[31]))|| (oper==1 && (rA[31]!=rB[31])))) begin //suma
 
@@ -408,18 +410,9 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 		
 				
 				
-				
-			//end						
 	end
 	
-	
-	
-	
-	//end
-	
-	
-	
-		//else nextState <= S11; // si las entradas cambiaron empiece a calcular de nuevo la suma 
+
 	end
 	
 	
@@ -428,31 +421,19 @@ module addsub754_JJ(clk, reset, start, oper, A, B, R, ready);
 	S6: begin
 	
 	R[22:0] <= result[24:2];
-//		ready <= 1;
-//		result<=result <<(8'b00011001-OUT);
-//		
-//		if ((expA  + (8'b00010111-OUT)) < 8'b11111110) // Si no existe overflow
-//					R[30:23] <= expA - (8'b00010111-OUT);  
-//		else 
-//    			R <= ~R;	//Infinito
-	
-	
-	
-	//else nextState <= S11; // si las entradas cambiaron empiece a calcular de nuevo la suma
+
 	
 	end
 	
 	S11: begin
 	
-	probando <=8'b00010000;
 	j<=0;
 	i <=8'b00000000;
 	expA <= 8'b00000000;
 	expB <= 8'b00000000;
 	mantA <= 23'b00000000000000000000000;
 	mantB <= 23'b00000000000000000000000;	
-	
-//	if(oper==1) R[22:0] <= result[24:2];
+
 	OUT <= 8'b00000000;
 	aux <= 23'b00000000000000000000000;
 	diferencia <= 8'b00000000;
@@ -532,6 +513,7 @@ module test_bench();
 	//start = 1; oper = 1; A =32'b01000000100000000000000000000000; B =32'b11111111111100000000000000000000; #150ns; // a=4 b=nand
 	//start = 1; oper = 0; A =32'b01000000100000000000000000000000; B =32'b11111111111100000000000000000000; #150ns; // a=4 b=nand
 	start = 1; oper = 1; A =32'b00000000000000000000000000000000; B =32'b11111111111100000000000000000000; #300ns;	//a=0 b=nand
+	start =0;#20ns;
 	start = 1; oper = 1; A =32'b01000010111100010000000000000000; B =32'b00111111000000000000000000000000; #400ns;	//a=120.5 b=0.5
 		$stop;
 		
